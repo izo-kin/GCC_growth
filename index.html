@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Church Growth - Glory of Christ Church</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background-color: #101111; color: rgb(238, 234, 234); }
+    .carousel-item img { width: 100%; height: 300px; object-fit: cover; }
+    .announcement { font-size: 1.20rem; font-weight: bold; white-space: nowrap; overflow: hidden; border-right: .15em solid orange; animation: typing 5s steps(50, end), blink-caret .75s step-end infinite; }
+
+    :root {
+  scroll-padding-top: 70px; /* Adjust to match your navbar height */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+
+    .progress { height: 20px; }
+    .disabled-download { pointer-events: none; opacity: 0.5; }
+    .video-scroll { overflow-x: auto; white-space: nowrap; }
+    .video-scroll video { width: 150px; margin-right: 10px; display: inline-block; }
+
+  #headerBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background-color: #212529;
+      transition: top 0.3s ease-in-out;
+    }
+
+    .header-hidden {
+      top: -100px;
+    }
+
+    .header-brand {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    .sub-brand {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    .picScroll {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px;
+        height: 250px;
+        margin: 20px auto;
+        top: 4.4vh;
+      }
+
+      .picLine {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .picBlock {
+        position: relative;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .picBlock img {
+        width: 100%;
+        display: block;
+      }
+
+      .actionWord {
+        position: absolute;
+        top: 22vh;
+        left: 25px;
+        background: rgb(240, 159, 10);
+        color: #0f0f0f;
+        padding: 3px 8px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .infoBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,0.95);
+        color: #333;
+        padding: 20px;
+        display: none;
+        z-index: 2;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hideTrigger {
+        align-self: flex-end;
+        background: crimson;
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 13px;
+        position: relative;
+        top: -40vh;
+      }
+      
+  .curved-nav {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+}
+
+.bottom-nav {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .nav-icon {
+    flex-grow: 1;
+    padding: 6px 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .nav-icon i {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .nav-icon .nav-label {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .nav-icon.active,
+  .nav-icon:hover {
+    background-color: #1a1a1a;
+    border-radius: 15px;
+  }
+
+  .nav-icon.active i,
+  .nav-icon.active .nav-label {
+    color: #fcd307;
+    font-weight: bold;
+  }
+
+  @media (max-width: 576px) {
+    .nav-icon i {
+      font-size: 20px;
+    }
+
+    .nav-icon .nav-label {
+      font-size: 10px;
+    }
+  }
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+/*for calendar*/
+.bg-primary.rounded-circle {
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+/*for class continuation button*/
+.glow-border {
+  border-color: white !important;
+  color: white !important;
+  animation: pulse-border 2s infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+}
+  </style>
+</head>
+<body>
+
+  <nav id="headerBar" class="px-3 py-2 d-flex align-items-center shadow">
+  <span class="header-brand me-2">Church Growth</span>
+  <span class="sub-brand">Glory of Christ, kawaala</span>
+</nav>
+
+<section id="home">
+<div class="picScroll" id="slideArea">
+  <div class="picLine" id="autoLine">
+    <div class="picBlock">
+      <img src="gloryb.jpg" alt="Slide 1">
+      <div class="actionWord" onclick="toggleText(this)">Details</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 1. Here you can write anything relevant.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+    <div class="picBlock">
+      <img src="5.jpg" alt="Slide 2">
+      <div class="actionWord" onclick="toggleText(this)">Details</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 2. More custom content can be added here.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+    <div class="picBlock">
+      <img src="mir.jpg" alt="Slide 3">
+      <div class="actionWord" onclick="toggleText(this)">Details</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 3. Final slide in this demo set.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById('autoLine');
+  const totalSlides = track.children.length;
+  let slideIndex = 0;
+  let slideTimer = null;
+
+  function moveToSlide(i) {
+    track.style.transform = `translateX(-${i * 100}%)`;
+  }
+
+  function startAutoSlide() {
+    slideTimer = setInterval(() => {
+      slideIndex = (slideIndex + 1) % totalSlides;
+      moveToSlide(slideIndex);
+    }, 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(slideTimer);
+  }
+
+  function toggleText(elem) {
+    const info = elem.parentElement.querySelector('.infoBox');
+    info.style.display = 'flex';
+    stopAutoSlide(); // Pause auto-slide when reading
+  }
+
+  function closeText(closeBtn) {
+    const info = closeBtn.parentElement;
+    info.style.display = 'none';
+    startAutoSlide(); // Resume auto-slide
+  }
+
+  // Start on page load
+  startAutoSlide();
+</script>
+</section>
+
+<section id="announcements" class="text-center my-5 position-relative container my-4" style="background: #10111179; padding: 10px; border-color: #1ddb56;">
+  <h2 class="mb-4 text-white">Live Announcements!</h2>
+  <div class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-2">
+<div id="announcement" 
+     class="fw-bold fs-5 text-center border p-2 rounded" 
+     style="min-height: 5.9rem; min-width: 95vw; background: #bebdb9d7; color: #131414; text-shadow: 0 0 1px #ffffff, 0 0 3px #ffffff, 0 0 5px #ffffff;
+">
+</div>
+    <div class="mt-2">
+      <button onclick="startReadingAll()" class="btn btn-sm btn-info me-2">🔊 Read All</button>
+      <button onclick="stopReadingAll()" class="btn btn-sm" style="background: #f52828;">⏹️ Stop</button>
+    </div>
+  </div>
+  <div id="listeningOverlay" class="position-absolute top-0 start-0 w-100 h-50 d-none justify-content-center align-items-center bg-dark bg-opacity-75 text-white" style="z-index: 10; margin-top: 60px;">
+    <h4 style="position: relative; top: 3vh;">🔊 Listening to announcements...</h4>
+  </div>
+</section>
+
+<script>
+  const announcements = [
+    "Welcome to Glory of Christ Church Kawaala!",
+    "Transformation Class resumes this Saturday at 10am.",
+    "Join the Encounter Class next Sunday — Registration now open.",
+    "Festival of Life Season is on. Join us this Saturday to preach the gospel!",
+    "Support Church Projects directly here — God bless your giving."
+  ];
+
+  let current = 0;
+  let isPaused = false;
+  let isReadingAll = false;
+  const announcementEl = document.getElementById("announcement");
+  const overlayEl = document.getElementById("listeningOverlay");
+
+  function loopAnnouncements() {
+    if (isPaused || isReadingAll) return;
+    const currentText = announcements[current];
+    typeWriterEffect(currentText, () => {
+      current = (current + 1) % announcements.length;
+      setTimeout(() => {
+        if (!isPaused && !isReadingAll) loopAnnouncements();
+      }, 1000);
+    });
+  }
+
+  function typeWriterEffect(text, callback, i = 0) {
+    if (i === 0) announcementEl.textContent = "";
+    if (i < text.length) {
+      announcementEl.textContent += text.charAt(i);
+      setTimeout(() => typeWriterEffect(text, callback, i + 1), 130);
+    } else {
+      if (callback) callback();
+    }
+  }
+
+  function startReadingAll() {
+    isPaused = true;
+    isReadingAll = true;
+    overlayEl.classList.remove("d-none");
+    announcementEl.textContent = "";
+    speechSynthesis.cancel();
+    readAllSequentially(0);
+  }
+
+  function readAllSequentially(index) {
+    if (index >= announcements.length) {
+      stopReadingAll();
+      return;
+    }
+    const utterance = new SpeechSynthesisUtterance(announcements[index]);
+    utterance.onend = () => readAllSequentially(index + 1);
+    speechSynthesis.speak(utterance);
+  }
+
+  function stopReadingAll() {
+    speechSynthesis.cancel();
+    isReadingAll = false;
+    overlayEl.classList.add("d-none");
+    isPaused = false;
+    loopAnnouncements();
+  }
+
+  // Start the loop
+  loopAnnouncements();
+</script>
+
+<section id="classes" class="container my-5" style="background: #0a8585; padding: 10px;">
+  <h2 class="text-center mb-4 text-white">Church Growth Classes</h2>
+  <div class="position-relative">
+    <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1" style="font-size: 13px; font-weight: bold; margin-top: 100px;" onclick="scrollCards(-1)">&lt;</button>
+    <div class="d-flex overflow-auto gap-3 pb-3" id="classCarousel">
+
+       <!-- Encounter Class -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+  <div class="card-body" style="background-color:  #07973f; color: #f8f9fa;">
+    <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Encounter Class
+    </h5>
+    <p class="card-text">Go deeper in your walk of faith. Starts next Sunday.</p>
+    <button class="btn btn-outline-warning" onclick="promptJoin('Encounter Class')">Join</button>
+  </div>
+</div>
+
+      <!-- Transformation Class (no Join, only Continue) -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #800080; color: #f8f9fa;">
+        <h5 class="card-title d-flex align-items-center gap-2">
+        <img src="glor.png" alt="logo" style="height: 24px;"> Transformation Class
+        </h5>          
+        <p class="card-text">Begin your growth journey here. Every Saturday at 10am.</p>
+        </div>
+      </div>
+
+      <!-- Membership Class -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #800f00; color: #f8f9fa;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Membership Class
+          </h5>
+          <p class="card-text">Learn what it means to belong. Sundays at 12pm.</p>
+        </div>
+      </div>
+
+      <!-- Servant's Heart Class -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #978904; color: #f8f9fa;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Servant's Heart Class
+          </h5>
+          <p class="card-text">Develop a heart to serve. Saturdays at 3pm.</p>
+        </div>
+      </div>
+
+      <!-- Shepherd Class -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #0517be; color: #f8f9fa;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Shephered Class
+          </h5>
+          <p class="card-text">Lead and care like Christ. Sundays at 4pm.</p>
+        </div>
+      </div>
+
+      <!-- Discipleship Class -->
+      <div class="card h-100 shadow" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #006d80; color: #f8f9fa;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Discipleship Class
+          </h5>
+          <p class="card-text">Choose online or physical sessions. Grow strong spiritually.</p>
+          <button class="btn btn-outline-warning" onclick="promptJoin('Discipleship Class')">Join</button>
+        </div>
+      </div>
+
+      <!-- Complete Pending Classes -->
+      <div class="card h-100 shadow border-danger border-2" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #800000; color: #f8f9fa;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Pending Completion
+          </h5>
+          <p class="card-text">Didn't finish a previous class? Complete it now!</p>
+          <button class="btn btn-outline-warning" onclick="promptJoin('Continuing Class')">Complete Pending Class</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-1" style="font-size: 13px; font-weight: bold; margin-top: 100px;" onclick="scrollCards(1)">&gt;</button>
+  </div>
+
+  <!-- Continue Previous Class Button -->
+ <div class="text-center mt-4">
+  <button class="btn btn-outline-light glow-border border border-3" onclick="promptJoin('Continuing Class')">
+    Continue from Previous Class
+  </button>
+</div>
+
+</section>
+
+<!-- Modal for Join/Continue -->
+<div class="modal fade" id="joinClassModal" tabindex="-1" aria-labelledby="joinClassModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="position: relative; top: 5vh;">
+        <h5 class="modal-title text-dark" id="joinClassModalLabel">Class Action</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="classForm">
+          <div class="text-dark" id="formFields"></div>
+          <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function promptJoin(className) {
+  const formFields = document.getElementById('formFields');
+  formFields.innerHTML = '';
+
+  if (className === 'Encounter Class') {
+    formFields.innerHTML = `
+      <p>Join Encounter Class starting on next Sunday.</p>
+      <input type="text" class="form-control mb-2" placeholder="Full Name" required>
+      <input type="text" class="form-control mb-2" placeholder="Lineage (or type 'No Lineage')" required>
+      <input type="text" class="form-control mb-2" placeholder="Reason for joining" required>
+      <input type="tel" class="form-control mb-2" placeholder="Valid Phone Number" required>
+      <input type="tel" class="form-control mb-2" placeholder="WhatsApp Number" required>
+    `;
+  } else if (className === 'Discipleship Class') {
+    formFields.innerHTML = `
+      <p>Would you like to join physically or online?</p>
+      <select class="form-select mb-2" onchange="handleDiscipleshipOption(this.value)">
+        <option value="">Select option</option>
+        <option value="Physical">Physical</option>
+        <option value="Online">Online</option>
+      </select>
+      <div id="discipleshipExtra"></div>
+    `;
+  } else if (className === 'Continuing Class') {
+    formFields.innerHTML = `
+      <input type="tel" class="form-control mb-2" placeholder="Your Phone Number" required>
+      <input type="text" class="form-control mb-2" placeholder="Class you stopped in" required>
+      <input type="text" class="form-control mb-2" placeholder="Time that has passed since" required>
+      <input type="text" class="form-control mb-2" placeholder="Reason to continue" required>
+    `;
+  }
+
+  const modal = new bootstrap.Modal(document.getElementById('joinClassModal'));
+  modal.show();
+}
+
+function handleDiscipleshipOption(option) {
+  const container = document.getElementById('discipleshipExtra');
+  if (option === 'Online') {
+    container.innerHTML = `
+      <input type="tel" class="form-control mb-2" placeholder="Your WhatsApp Number" required>
+      <p class="text-success">A message will be sent to the admin’s WhatsApp for online discipleship.</p>
+    `;
+  } else if (option === 'Physical') {
+    container.innerHTML = `
+      <input type="text" class="form-control mb-2" placeholder="Full Name" required>
+      <input type="tel" class="form-control mb-2" placeholder="Valid Phone Number" required>
+      <input type="tel" class="form-control mb-2" placeholder="WhatsApp Number" required>
+      <p class="text-info">Your request will be forwarded to the physical class admin via WhatsApp.</p>
+    `;
+  } else {
+    container.innerHTML = '';
+  }
+}
+
+function scrollCards(direction) {
+  const carousel = document.getElementById('classCarousel');
+  const scrollAmount = 320; // Adjust depending on card width
+  carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+</script>
+
+<style>
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+</style>
+
+
+<section class="container mb-5" style="background: #10111179; padding: 10px;">
+  <div class="text-center mb-3">
+    <h3 class="mb-1 text-white">Video Testimonies</h3>
+    <small class="text-white">Witness from those that have finished different classes!</small>
+  </div>
+
+  <div class="mb-2">
+    <video id="main-video" width="100%" height="300" controls>
+      <source src="bil.mp4" type="video/mp4">
+    </video>
+    <p class="text-center fw-bold mt-2" id="video-caption">John Doe - Encounter Class</p>
+  </div>
+
+  <div class="video-scroll d-flex overflow-auto gap-3">
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="John Doe - Encounter Class"></video>
+      <p class="small mt-1 mb-0">John Doe<br><em>Encounter Class</em></p>
+    </div>
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Grace Namiiro - Membership Class"></video>
+      <p class="small mt-1 mb-0">Grace Namiiro<br><em>Membership Class</em></p>
+    </div>
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Moses K - Shepherd Class"></video>
+      <p class="small mt-1 mb-0">Moses K<br><em>Shepherd Class</em></p>
+    </div>
+  </div>
+</section>
+<script>
+  function loadVideo(container) {
+    const video = container.querySelector('video');
+    const mainVideo = document.getElementById('main-video');
+    const caption = video.getAttribute('data-caption');
+
+    mainVideo.src = video.src;
+    mainVideo.play();
+
+    document.getElementById('video-caption').textContent = caption;
+  }
+</script>
+
+<!-- Book Library Section -->
+<section class="container my-5" style="background: #10111179; padding: 10px;">
+  <h2 class="text-center mb-4">📚 Church Book Library</h2>
+
+  <!-- Horizontal Slider -->
+  <div class="position-relative overflow-hidden">
+    <div id="bookSlider" class="d-flex flex-nowrap overflow-auto pb-2">
+      <!-- Slider book cards will be added here dynamically -->
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button id="prevBook" class="btn btn-light position-absolute top-50 start-0 translate-middle-y"><</button>
+    <button id="nextBook" class="btn btn-light position-absolute top-50 end-0 translate-middle-y">></button>
+  </div>
+
+  <!-- More Button -->
+  <div class="text-center mt-4">
+    <button id="toggleBooksBtn" class="btn btn-warning">More Books</button>
+  </div>
+</section>
+
+<!-- Overlay Full Book List -->
+<div id="bookOverlay" class="overlay d-none">
+  <div class="overlay-content container">
+    <h3 class="text-center mb-4">All Books</h3>
+    <div class="row" id="fullBookList">
+      <!-- Full list of books will appear here -->
+    </div>
+    <div class="text-center mt-4">
+      <button onclick="toggleFullBookList()" class="btn btn-outline-danger">Close</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  #bookSlider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .book-card {
+    flex: 0 0 auto;
+    width: 180px;
+    margin-right: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(236, 233, 233, 0.363);
+    background: #141414b7;
+  }
+
+  .book-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+  }
+
+  .book-card-body {
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Overlay styles */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 40px 0;
+  }
+
+  .overlay-content {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .overlay .book-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  @media (min-width: 768px) {
+    .overlay .book-card {
+      width: 48%;
+      margin: 1%;
+    }
+  }
+
+  #bookOverlay .row {
+    justify-content: center;
+  }
+</style>
+
+<script>
+  const books = [
+    { title: "Faith Foundations", image: "glor.png", link: "#" },
+    { title: "Spirit Growth", image: "5.jpg", link: "#" },
+    { title: "Prayer Guide", image: "glor.png", link: "#" },
+    { title: "Holy Living", image: "5.jpg", link: "#" },
+    { title: "Leadership Light", image: "glor.png", link: "#" },
+    { title: "Wisdom Nuggets", image: "5.jpg", link: "#" },
+    { title: "Praise & Worship", image: "glor.png", link: "#" },
+    { title: "Church Vision", image: "5.jpg", link: "#" }
+  ];
+
+  const bookSlider = document.getElementById("bookSlider");
+  const fullBookList = document.getElementById("fullBookList");
+  const bookOverlay = document.getElementById("bookOverlay");
+  const toggleBooksBtn = document.getElementById("toggleBooksBtn");
+
+  function createBookCard(book) {
+    const card = document.createElement("div");
+    card.className = "book-card";
+
+    card.innerHTML = `
+      <img src="${book.image}" alt="${book.title}">
+      <div class="book-card-body">
+        <h6>${book.title}</h6>
+        <a href="${book.link}" target="_blank" class="btn btn-sm btn-success my-1">Read</a>
+        <button class="btn btn-sm btn-secondary" disabled>Download</button>
+      </div>
+    `;
+    return card;
+  }
+
+  function renderSliderBooks() {
+    bookSlider.innerHTML = "";
+    books.forEach(book => {
+      const card = createBookCard(book);
+      bookSlider.appendChild(card);
+    });
+  }
+
+  function renderFullBookList() {
+  fullBookList.innerHTML = "";
+
+  for (let i = 0; i < books.length; i += 2) {
+    const row = document.createElement("div");
+    row.className = "row mb-4";
+
+    // First book column
+    const col1 = document.createElement("div");
+    col1.className = "col-12 col-md-6 d-flex justify-content-center mb-3 mb-md-0";
+    col1.appendChild(createBookCard(books[i]));
+    row.appendChild(col1);
+
+    // Second book column (if exists)
+    if (books[i + 1]) {
+      const col2 = document.createElement("div");
+      col2.className = "col-12 col-md-6 d-flex justify-content-center";
+      col2.appendChild(createBookCard(books[i + 1]));
+      row.appendChild(col2);
+    }
+
+    fullBookList.appendChild(row);
+  }
+}
+
+  function toggleFullBookList() {
+    bookOverlay.classList.toggle("d-none");
+  }
+
+  toggleBooksBtn.addEventListener("click", () => {
+    renderFullBookList();
+    toggleFullBookList();
+  });
+
+  // Book Slider Controls
+  document.getElementById("prevBook").onclick = () => {
+    bookSlider.scrollBy({ left: -200, behavior: "smooth" });
+  };
+
+  document.getElementById("nextBook").onclick = () => {
+    bookSlider.scrollBy({ left: 200, behavior: "smooth" });
+  };
+
+  // Auto reshuffle every 15 seconds
+  setInterval(() => {
+    books.push(books.shift()); // rotate array
+    renderSliderBooks();
+  }, 15000);
+
+  // Initial render
+  renderSliderBooks();
+</script>
+
+<!-- Bible Quiz Section -->
+<section id="bible-quiz" class="p-4 shadow rounded-xl max-w-4xl mx-auto my-8" style="background: #0a8585; padding: 10px; margin-bottom: 20px;">
+  <h2 class="text-2xl font-bold text-center mb-4">Bible Quiz Challenge</h2>
+  <div id="quiz-container" class="space-y-4">
+    <form id="quiz-form" class="space-y-4">
+      <div class="grid md:grid-cols-2 gap-4">
+        <input type="text" name="name" placeholder="Full Name" required class="border rounded p-2 w-full">
+        <input type="tel" name="phone" placeholder="Phone Number" required class="border rounded p-2 w-full">
+        <select name="lineage" required class="border rounded p-2 w-full">
+          <option value="">Select Lineage</option>
+          <option>Esther</option><option>David</option><option>Daniel</option><option>Israel</option>
+          <option>Nehemiah</option><option>Joshua</option><option>Moses</option><option>Elijah</option>
+          <option>Solomon</option><option>Deborah</option><option>Joseph</option><option>Ephraim</option>
+        </select>
+        <input type="text" name="leader" placeholder="Fellowship Leader Name" required class="border rounded p-2 w-full">
+        <input type="tel" name="leaderContact" placeholder="Fellowship Leader Contact" required class="border rounded p-2 w-full">
+      </div>
+
+      <div id="quiz-questions" class="space-y-4"></div>
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Submit Quiz</button>
+    </form>
+  </div>
+</section>
+
+<script>
+const questions = [
+  { q: "What is the first book of the Bible?", a: "Genesis" },
+  { q: "Who built the ark?", a: "Noah" },
+  { q: "Name the mountain where Moses received the Ten Commandments.", a: "Mount Sinai" },
+  { q: "Who betrayed Jesus?", a: "Judas" },
+  { q: "Which prophet was swallowed by a fish?", a: "Jonah" },
+  { q: "What did David use to defeat Goliath?", a: "Slingshot" },
+  { q: "Who was the mother of Jesus?", a: "Mary" },
+  { q: "Name the sea that parted for Moses.", a: "Red Sea" },
+  { q: "How many disciples did Jesus have?", a: "12" },
+  { q: "Who denied Jesus three times?", a: "Peter" }
+];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function renderQuestions() {
+  const shuffled = [...questions];
+  shuffle(shuffled);
+  const container = document.getElementById("quiz-questions");
+  container.innerHTML = "";
+  shuffled.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.innerHTML = `<label class='block font-semibold'>${i+1}. ${q.q}</label>
+      <input type='text' name='q${i}' required class='border p-2 w-full rounded' data-answer="${q.a}">`;
+    container.appendChild(div);
+  });
+}
+
+const usedLineages = new Set();
+
+const quizForm = document.getElementById("quiz-form");
+quizForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const data = new FormData(quizForm);
+  const lineage = data.get("lineage");
+
+  if (usedLineages.has(lineage)) {
+    alert("A participant from this lineage has already submitted.");
+    return;
+  }
+
+  let score = 0;
+  questions.forEach((q, i) => {
+    const ans = data.get(`q${i}`)?.trim().toLowerCase();
+    if (ans === q.a.toLowerCase()) score++;
+  });
+
+  usedLineages.add(lineage);
+
+  const summary = `Bible Quiz Submission (%23${new Date().toLocaleDateString()})%0A` +
+    `Name: ${data.get("name")}%0A` +
+    `Phone: ${data.get("phone")}%0A` +
+    `Lineage: ${lineage}%0A` +
+    `Fellowship Leader: ${data.get("leader")}%0A` +
+    `Leader Contact: ${data.get("leaderContact")}%0A` +
+    `Score: ${score}/10`;
+
+  const whatsappURL = `https://wa.me/256741306237?text=${encodeURIComponent(summary)}`;
+  window.open(whatsappURL, '_blank');
+});
+
+window.onload = function() {
+  const day = new Date().getDay();
+  const quizContainer = document.getElementById("quiz-container");
+  if (day === 5) { // Friday
+    renderQuestions();
+  } else {
+    quizContainer.innerHTML = `<p class='text-center text-gray-600'>Bible quiz is only available on Fridays.<br>Here's a verse for today:</p>
+      <blockquote class='italic text-center mt-2'>"Study to shew thyself approved unto God..." – 2 Timothy 2:15</blockquote>`;
+  }
+};
+</script>
+
+<section id="projects" class="py-5" style="background: #10111179; padding: 10px;">
+  <div class="container">
+    <h2 class="text-center mb-4">Church Growth Projects</h2>
+
+    <div class="d-flex justify-content-center mb-3 flex-wrap">
+      <button id="btn-ongoing" class="btn btn-warning mx-1 active">Ongoing</button>
+      <button id="btn-upcoming" class="btn btn-outline-warning mx-1">Upcoming</button>
+      <button id="btn-completed" class="btn btn-outline-warning mx-1">Completed</button>
+    </div>
+
+    <div class="position-relative" style="max-width: 900px; margin: 0 auto;">
+      <button id="btn-prev" class="btn btn-secondary position-absolute top-50 start-0 translate-middle-y z-2 mt-4">
+        ❮
+      </button>
+
+      <div class="overflow-hidden" id="slider-container" style="min-height: 400px;">
+        <div id="project-slider" class="d-flex position-relative"></div>
+      </div>
+
+      <button id="btn-next" class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y z-2 mt-4">
+        ❯
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+const projectSlider = document.getElementById("project-slider");
+const sliderContainer = document.getElementById("slider-container");
+const btnPrev = document.getElementById("btn-prev");
+const btnNext = document.getElementById("btn-next");
+
+let currentSlide = 0;
+let currentCategory = 'Ongoing';
+let autoScrollInterval;
+
+const projects = {
+  Ongoing: [
+    {
+      title: "Church Roofing",
+      status: "Ongoing",
+      description: "Completing the main hall roofing for the new extension.",
+      image: "gloryb.jpg",
+      percent: 65,
+      balance: "UGX 5,400,000"
+    },
+    {
+      title: "Youth Center",
+      status: "Ongoing",
+      description: "Renovating the youth center for better learning space.",
+      image: "mir.jpg",
+      percent: 45,
+      balance: "UGX 3,200,000"
+    }
+  ],
+  Upcoming: [
+    {
+      title: "Mission Van",
+      status: "Upcoming",
+      description: "Purchase of a van to facilitate outreach missions.",
+      image: "images/mission_van.jpg",
+      percent: 0,
+      balance: "UGX 25,000,000"
+    }
+  ],
+  Completed: [
+    {
+      title: "Children’s Ministry Room",
+      status: "Completed",
+      description: "Successfully renovated the children’s worship area.",
+      image: "images/children_room.jpg",
+      percent: 100,
+      balance: "UGX 0"
+    }
+  ]
+};
+
+function renderProjects() {
+  const data = projects[currentCategory];
+  projectSlider.innerHTML = '';
+
+  data.forEach((project, i) => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    if (i === currentSlide) card.classList.add("active");
+
+    card.innerHTML = `
+      <img src="${project.image}" alt="${project.title}" class="img-fluid rounded mb-3" style="height: 150px; width: 400px; object-fit: cover;">
+      <h4>${project.title}</h4>
+      <p><strong>Status:</strong> ${project.status}</p>
+      <p>${project.description}</p>
+      <div class="progress mb-1">
+        <div class="progress-bar bg-success" style="width: ${project.percent}%">${project.percent}%</div>
+      </div>
+      ${project.balance && project.percent < 100 ? `<p><strong>Balance:</strong> ${project.balance}</p>` : ''}
+    `;
+    card.style.transform = `translateX(${(i - currentSlide) * 100}%)`;
+    projectSlider.appendChild(card);
+  });
+
+  updateTabStyle();
+}
+
+function updateSlide(direction) {
+  const total = projects[currentCategory].length;
+  currentSlide = (currentSlide + direction + total) % total;
+  renderProjects();
+}
+
+function updateTabStyle() {
+  ['btn-ongoing', 'btn-upcoming', 'btn-completed'].forEach(id => {
+    document.getElementById(id).classList.remove('btn-primary', 'active');
+    document.getElementById(id).classList.add('btn-outline-primary');
+  });
+
+  document.getElementById(`btn-${currentCategory.toLowerCase()}`).classList.add('btn-primary', 'active');
+  document.getElementById(`btn-${currentCategory.toLowerCase()}`).classList.remove('btn-outline-primary');
+}
+
+function startAutoScroll() {
+  clearInterval(autoScrollInterval);
+  autoScrollInterval = setInterval(() => {
+    updateSlide(1);
+  }, 5000);
+}
+
+// Pause auto-scroll on hover
+sliderContainer.addEventListener("mouseenter", () => clearInterval(autoScrollInterval));
+sliderContainer.addEventListener("mouseleave", startAutoScroll);
+
+btnPrev.addEventListener("click", () => {
+  updateSlide(-1);
+  startAutoScroll();
+});
+btnNext.addEventListener("click", () => {
+  updateSlide(1);
+  startAutoScroll();
+});
+
+document.getElementById("btn-ongoing").addEventListener("click", () => {
+  currentCategory = "Ongoing";
+  currentSlide = 0;
+  renderProjects();
+  startAutoScroll();
+});
+document.getElementById("btn-upcoming").addEventListener("click", () => {
+  currentCategory = "Upcoming";
+  currentSlide = 0;
+  renderProjects();
+  startAutoScroll();
+});
+document.getElementById("btn-completed").addEventListener("click", () => {
+  currentCategory = "Completed";
+  currentSlide = 0;
+  renderProjects();
+  startAutoScroll();
+});
+
+// Initial render + scroll
+renderProjects();
+startAutoScroll();
+</script>
+<style>
+  #project-slider .project-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  transform: scale(0.95);
+  z-index: 0;
+}
+
+#project-slider .project-card.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+}
+
+.project-card {
+  background: #10111079;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(236, 233, 233, 0.63);
+}
+</style>
+
+<section id="fundraise" class="container my-5" style="background: #10111179; padding: 10px; position: relative; top: -5vh;">
+  <h3 class="text-center mb-3">Support Church Growth</h3>
+  <p class="text-center mb-4">Your contribution helps us continue building and expanding God's work.</p>
+
+  <div class="text-center mb-3">
+    <label class="form-label">Select Amount to Give:</label>
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <button class="btn btn-outline-warning" onclick="selectAmount(5000)">UGX 5,000</button>
+      <button class="btn btn-outline-warning" onclick="selectAmount(10000)">UGX 10,000</button>
+      <button class="btn btn-outline-warning" onclick="selectAmount(20000)">UGX 20,000</button>
+      <button class="btn btn-outline-warning" onclick="selectAmount(50000)">UGX 50,000</button>
+      <input type="number" id="customAmount" class="form-control w-auto" placeholder="Custom Amount" onchange="selectCustomAmount()">
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <p><strong>Selected Amount:</strong> <span id="selectedAmount">None</span></p>
+    <button class="btn btn-success" onclick="proceedToPayment()" id="proceedBtn" disabled>Proceed to Payment</button>
+  </div>
+</section>
+<script>
+  let amount = 0;
+
+  function selectAmount(val) {
+    amount = val;
+    document.getElementById("selectedAmount").textContent = "UGX " + val.toLocaleString();
+    document.getElementById("proceedBtn").disabled = false;
+    document.getElementById("customAmount").value = "";
+  }
+
+  function selectCustomAmount() {
+    const customVal = parseInt(document.getElementById("customAmount").value);
+    if (!isNaN(customVal) && customVal > 0) {
+      amount = customVal;
+      document.getElementById("selectedAmount").textContent = "UGX " + customVal.toLocaleString();
+      document.getElementById("proceedBtn").disabled = false;
+    } else {
+      document.getElementById("selectedAmount").textContent = "Invalid amount";
+      document.getElementById("proceedBtn").disabled = true;
+    }
+  }
+
+  function proceedToPayment() {
+    if (amount <= 0) {
+      alert("Please select a valid amount.");
+      return;
+    }
+
+    // Sample Pesapal redirect (replace with your real integration)
+    const redirectURL = `https://yourpesapalpaymenturl.com/pay?amount=${amount}`;
+    window.location.href = redirectURL;
+  }
+</script>
+
+<section class="container my-5" id="enrollment-calendar-section" style="background: #10111179; padding: 10px;">
+  <h2 class="text-center mb-4">Class Enrollment Calendar</h2>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <button class="btn btn-outline-warning" id="prevMonthBtn">&lt; Prev</button>
+    <h4 id="calendarMonthYear" class="mb-0"></h4>
+    <button class="btn btn-outline-warning" id="nextMonthBtn">Next &gt;</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered text-center" id="calendarTable">
+      <thead class="table-light">
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody id="calendarBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Enrollment Info Modal -->
+<div class="modal fade" id="enrollmentModal" tabindex="-1" aria-labelledby="enrollmentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" style="margin-top: 6vh;" id="enrollmentModalLabel">Enrollments on <span id="modalDate"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-dark" id="enrollmentDetails">
+        <!-- Dynamic content here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const enrollments = {
+    "2025-08-10": [
+      { className: "Encounter Class", info: "New intake starting at 9AM" },
+      { className: "Transformation Class", info: "Enrollment open all day" }
+    ],
+    "2025-08-15": [
+      { className: "Discipleship Class", info: "Physical session enrollment" }
+    ],
+    "2025-08-20": [
+      { className: "Membership Class", info: "Online enrollment available" }
+    ],
+    "2025-08-23": [
+      { className: "Shepherd Class", info: "Enrollment deadline" }
+    ]
+  };
+
+  const calendarMonthYear = document.getElementById('calendarMonthYear');
+  const calendarBody = document.getElementById('calendarBody');
+  const prevMonthBtn = document.getElementById('prevMonthBtn');
+  const nextMonthBtn = document.getElementById('nextMonthBtn');
+  const enrollmentModal = new bootstrap.Modal(document.getElementById('enrollmentModal'));
+  const modalDateElem = document.getElementById('modalDate');
+  const enrollmentDetails = document.getElementById('enrollmentDetails');
+
+  let currentDate = new Date();
+
+  function renderCalendar(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  calendarMonthYear.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const startDay = firstDay.getDay();
+  const totalDays = lastDay.getDate();
+
+  const today = new Date();             // Get today's date
+  today.setHours(0, 0, 0, 0);           // Remove time portion
+
+  calendarBody.innerHTML = '';
+  let row = document.createElement('tr');
+  let dayCount = 0;
+
+  for (let i = 0; i < startDay; i++) {
+    row.appendChild(document.createElement('td'));
+    dayCount++;
+  }
+
+  for (let day = 1; day <= totalDays; day++) {
+    const cell = document.createElement('td');
+    const fullDate = new Date(year, month, day);
+    const isoDate = fullDate.toISOString().split('T')[0];
+
+    cell.textContent = day;
+    cell.style.cursor = 'default';
+
+    const isToday = fullDate.getTime() === today.getTime();
+    if (isToday) {
+      cell.classList.add('bg-primary', 'text-white'); // Highlight style
+    }
+
+    if (enrollments[isoDate]) {
+      cell.classList.add('table-primary', 'fw-bold', 'enroll-date');
+      cell.style.cursor = 'pointer';
+      cell.title = enrollments[isoDate].map(e => `${e.className}: ${e.info}`).join('\n');
+      cell.addEventListener('click', () => showEnrollmentDetails(isoDate));
+    }
+
+    row.appendChild(cell);
+    dayCount++;
+
+    if (dayCount % 7 === 0 || day === totalDays) {
+      while (dayCount % 7 !== 0) {
+        row.appendChild(document.createElement('td'));
+        dayCount++;
+      }
+      calendarBody.appendChild(row);
+      row = document.createElement('tr');
+    }
+  }
+}
+
+  function showEnrollmentDetails(dateStr) {
+    modalDateElem.textContent = new Date(dateStr).toLocaleDateString();
+    const classes = enrollments[dateStr];
+
+    if (!classes) {
+      enrollmentDetails.innerHTML = '<p>No enrollments for this day.</p>';
+    } else {
+      enrollmentDetails.innerHTML = classes.map(c =>
+        `<div><strong>${c.className}</strong><p>${c.info}</p></div>`
+      ).join('<hr>');
+    }
+
+    enrollmentModal.show();
+  }
+
+  prevMonthBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar(currentDate);
+  });
+
+  nextMonthBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar(currentDate);
+  });
+
+  renderCalendar(currentDate);
+</script>
+
+<!-- 📖 Bible Series Section -->
+<section id="bible-series" class="py-5" style="background: #10111179; padding: 10px;">
+  <div class="container text-center">
+    <h2 class="text-warning fw-bold mb-3">📖 Bible Series: Walk with Jesus</h2>
+    <p class="lead mb-4 text-white">
+      Join us every week for a powerful episode about the life and teachings of Jesus Christ.  
+      <br><strong>Don't miss out—your spirit will be uplifted!</strong>
+    </p>
+
+    <!-- 🎥 YouTube Video Embed -->
+    <div class="ratio ratio-16x9 mb-4">
+      <iframe src="https://www.youtube.com/embed/TgWhVRm25i8" 
+              title="Bible Series - Jesus Christ" 
+              allowfullscreen></iframe>
+    </div>
+
+    <p class="text-white">
+      New episodes posted weekly. <br> Stay connected, stay blessed. 🙏
+    </p>
+  </div>
+</section>
+
+<section class="container my-5 text-center" style="background: #10111179; padding: 10px;">
+  <h3 class="mb-3">Grow & Share the Word</h3>
+
+  <blockquote class="blockquote">
+    <p class="mb-0 fs-5">"Study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth."</p>
+    <footer class="blockquote-footer mt-2">2 Timothy 2:15 (KJV)</footer>
+  </blockquote>
+
+  <p class="mt-4">Be a part of this mission. Invite a friend to grow with us and help spread the Gospel far and wide!</p>
+
+  <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+    <a class="btn btn-success" href="https://wa.me/?text=Check%20out%20this%20amazing%20church%20site:%20https://yourchurchsite.com" target="_blank">
+      Share on WhatsApp
+    </a>
+    <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u=https://yourchurchsite.com" target="_blank">
+      Share on Facebook
+    </a>
+    <button class="btn btn-warning" onclick="copyLink()">Copy Link</button>
+  </div>
+
+  <p id="copyStatus" class="mt-2 text-success" style="display: none;">Link copied!</p>
+</section>
+
+<script>
+  function copyLink() {
+    const url = "https://yourchurchsite.com";
+    navigator.clipboard.writeText(url).then(() => {
+      document.getElementById("copyStatus").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("copyStatus").style.display = "none";
+      }, 3000);
+    });
+  }
+</script>
+
+<footer class="bg-dark text-white text-center text-lg-start mt-5 pt-4 pb-3" style="margin-bottom: 70px;">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-md-6 mb-3 mb-md-0">
+        <p class="mb-1">© 2025 Glory of Christ Church Kawaala. All Rights Reserved.</p>
+        <p class="mb-0">Contact: <a href="mailto:info@glorychurch.org" class="text-white text-decoration-underline">info@glorychurch.org</a> | 
+        <a href="tel:+256700000000" class="text-white text-decoration-underline">+256 700 000000</a></p>
+      </div>
+
+      <div class="col-md-6 text-md-end">
+        <a href="https://facebook.com/yourchurch" target="_blank" class="text-white me-3">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://wa.me/256700000000" target="_blank" class="text-white me-3">
+          <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+        <a href="mailto:info@glorychurch.org" class="text-white">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-nav fixed-bottom bg-black text-white d-flex justify-content-around align-items-center py-2 shadow-lg">
+  <a href="#home" class="nav-icon text-white text-center active">
+    <i class="fas fa-home"></i>
+    <div class="nav-label">Home</div>
+  </a>
+  <a href="#classes" class="nav-icon text-white text-center">
+    <i class="fas fa-chalkboard-teacher"></i>
+    <div class="nav-label">Classes</div>
+  </a>
+  <a href="#bible-quiz" class="nav-icon text-white text-center">
+    <i class="fas fa-book-open"></i>
+    <div class="nav-label">Quiz</div>
+  </a>
+  <a href="#projects" class="nav-icon text-white text-center">
+    <i class="fas fa-hammer"></i>
+    <div class="nav-label">Projects</div>
+  </a>
+  <a href="#fundraise" class="nav-icon text-white text-center">
+    <i class="fas fa-donate"></i>
+    <div class="nav-label">Support</div>
+  </a>
+  <a href="#enrollment-calendar-section" class="nav-icon text-white text-center">
+    <i class="fas fa-calendar-alt"></i>
+    <div class="nav-label">Calendar</div>
+  </a>
+</nav>
+<script>
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.bottom-nav .nav-icon');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<script>
+  function speakText() {
+    const text = document.getElementById('announcement-text').innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+  }
+
+  function showEncounterForm() {
+    document.getElementById('encounter-form').style.display = 'block';
+  }
+
+  function sendToWhatsApp() {
+    const name = document.getElementById('name').value;
+    const lineage = document.getElementById('lineage').value;
+    const reason = document.getElementById('reason').value;
+    const phone = document.getElementById('phone').value;
+    const whatsapp = document.getElementById('whatsapp').value;
+    const message = `I want to join Encounter Class.\nName: ${name}\nLineage: ${lineage}\nReason: ${reason}\nPhone: ${phone}\nWhatsApp: ${whatsapp}`;
+    const encodedMsg = encodeURIComponent(message);
+    window.open(`https://wa.me/256XXXXXXXXX?text=${encodedMsg}`);
+    return false;
+  }
+
+  function loadVideo(src) {
+    document.getElementById('main-video').src = src;
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Add before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="scroll-navbar.js"></script>
+
+</body>
+</html>
