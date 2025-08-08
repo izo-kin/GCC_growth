@@ -90,17 +90,19 @@ html {
 }
 
       .actionWord {
-        position: absolute;
-        top: 22vh;
-        left: 25px;
-        background: rgb(240, 159, 10);
-        color: #0f0f0f;
-        padding: 3px 8px;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    position: absolute;
+    top: 28vh;
+    border: 1px solid #1b1a1aa2;
+    left: 25px;
+    background: rgb(240, 177, 62);
+    color: #ffffff;
+    padding: 3px 8px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.6); /* slim shadow */
+}
 
       .infoBox {
         position: absolute;
@@ -140,6 +142,7 @@ html {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     overflow: hidden;
+    border: 1px solid #ccc;
     z-index: 999;
   }
 
@@ -152,15 +155,18 @@ html {
 
   .nav-icon i {
     display: block;
-    font-size: 22px;
+    font-size: 26px;
     margin-bottom: 4px;
+    color: #101111;
   }
 
   .nav-icon .nav-label {
-    font-size: 12px;
+    font-size: 22px;
     line-height: 1;
   }
-
+  .nav-label{
+    font-size: 29px;
+  }
   .nav-icon.active,
   .nav-icon:hover {
     background-color: #1a1a1a;
@@ -299,10 +305,12 @@ html {
   <h2 class="mb-4 text-white">Live Announcements!</h2>
   <div class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-2">
 <div id="announcement" 
-     class="fw-bold fs-5 text-center border p-2 rounded" 
-     style="min-height: 5.9rem; min-width: 95vw; background: #bebdb9d7; color: #131414; text-shadow: 0 0 1px #ffffff, 0 0 3px #ffffff, 0 0 5px #ffffff;
-">
+     class="fw-bold fs-5 border p-2 rounded" 
+     style="min-height: 5.9rem; min-width: 95vw; background: #f0efeaea; color: #131414; 
+            text-shadow: 0 0 1px #faec29, 0 0 3px #ffffff, 0 0 5px #fda95a;
+            text-align: left;">
 </div>
+
     <div class="mt-2">
       <button onclick="startReadingAll()" class="btn btn-sm btn-info me-2">🔊 Read All</button>
       <button onclick="stopReadingAll()" class="btn btn-sm" style="background: #f52828;">⏹️ Stop</button>
@@ -840,18 +848,17 @@ function scrollCards(direction) {
   const nextFriday = () => {
     const today = new Date();
     const day = today.getDay();
-    const diff = (5 + 7 - day) % 7 || 7; // Days until Friday
+    const diff = (5 + 7 - day) % 7 || 7; 
     let friday = new Date(today);
     friday.setDate(today.getDate() + diff);
     friday.setHours(0,0,0,0);
     return friday;
   };
 
-  const quizDuration = 120; // seconds (2 minutes)
+  const quizDuration = 120; // seconds
   const quizValidHours = 24;
   const adminWhatsappNumber = "256741306237";
 
-  const quizContainer = document.getElementById("quiz-container");
   const preQuizDiv = document.getElementById("pre-quiz");
   const startBtn = document.getElementById("start-quiz-btn");
   const quizForm = document.getElementById("quiz-form");
@@ -862,10 +869,10 @@ function scrollCards(direction) {
   const postQuizMessage = document.getElementById("post-quiz-message");
   const quizCountdown = document.getElementById("quiz-countdown");
   const verseTodayDiv = document.getElementById("verse-today");
+  const userDetailsDiv = document.getElementById("user-details"); // <-- wrapper for name, phone, lineage, etc.
 
   let timerInterval;
   let usedLineages = new Set(JSON.parse(localStorage.getItem('usedLineages') || '[]'));
-  let quizStartTime = null;
 
   function shuffle(array) {
     for (let i = array.length -1; i > 0; i--) {
@@ -908,7 +915,6 @@ function scrollCards(direction) {
     return `${m}:${s.toString().padStart(2,"0")}`;
   }
 
-  // Countdown to next Friday and until quiz closes
   function startCountdown() {
     const now = new Date();
     const quizDay = nextFriday();
@@ -919,8 +925,6 @@ function scrollCards(direction) {
       const diffHours = Math.floor((diffMs % (1000*60*60*24)) / (1000*60*60));
       quizCountdown.textContent = `Next Bible Quiz opens in ${diffDays} day(s) and ${diffHours} hour(s).`;
     } else {
-      // Quiz day (Friday)
-      // Show quiz open or closed status (24hrs limit)
       const quizCloseTime = new Date(quizDay.getTime() + quizValidHours * 60 * 60 * 1000);
       if(now < quizCloseTime) {
         quizCountdown.textContent = `Bible Quiz is OPEN today! You have 24 hours to participate.`;
@@ -939,14 +943,12 @@ function scrollCards(direction) {
     verseTodayDiv.innerHTML = `<p>${verse}</p><p style="font-size:0.9rem; margin-top:5px;">${meaning}</p>`;
   }
 
-  // Disable all inputs and buttons inside form except Start button
   function toggleFormInputs(disabled) {
     quizForm.querySelectorAll("input, select, button").forEach(el => {
       if(el !== startBtn) el.disabled = disabled;
     });
   }
 
-  // When user clicks start quiz button
   startBtn.addEventListener("click", () => {
     preQuizDiv.style.display = "none";
     quizForm.style.display = "block";
@@ -954,20 +956,16 @@ function scrollCards(direction) {
     toggleFormInputs(false);
     attemptTimerDiv.textContent = "";
 
-    // Clear previous questions if any
     quizQuestionsDiv.innerHTML = "";
     lineageWarning.style.display = "none";
     postQuizMessage.textContent = "";
 
-    // Disable questions and submit until lineage selected
     quizQuestionsDiv.style.display = "none";
     submitBtn.disabled = true;
 
-    // Clear previous lineage selection
     quizForm.lineage.value = "";
   });
 
-  // Lineage select change event
   quizForm.lineage.addEventListener("change", () => {
     const lineage = quizForm.lineage.value.trim();
 
@@ -995,7 +993,6 @@ function scrollCards(direction) {
     }
   });
 
-  // On form submit
   quizForm.addEventListener("submit", e => {
     e.preventDefault();
     clearInterval(timerInterval);
@@ -1018,7 +1015,6 @@ function scrollCards(direction) {
     usedLineages.add(lineage);
     localStorage.setItem("usedLineages", JSON.stringify([...usedLineages]));
 
-    // Summary to send to admin WhatsApp
     const adminSummary = 
       `Bible Quiz Submission (${new Date().toLocaleDateString()})\n` +
       `Name: ${data.get("name")}\n` +
@@ -1028,29 +1024,30 @@ function scrollCards(direction) {
       `Leader Contact: ${data.get("leaderContact")}\n` +
       `Score: ${score}/10`;
 
-    // Compose user's quiz questions and answers summary
     let userQuizSummary = `Your Bible Quiz Results:\nScore: ${score}/10\n\nQuestions & Your Answers:\n`;
     questions.forEach((q,i) => {
       const userAns = data.get(`q${i}`) || "[No Answer]";
       userQuizSummary += `${i+1}. ${q.q}\nYour answer: ${userAns}\nCorrect answer: ${q.a}\n\n`;
     });
 
-    // Open admin WhatsApp chat
     const adminURL = `https://wa.me/${adminWhatsappNumber}?text=${encodeURIComponent(adminSummary)}`;
     window.open(adminURL, '_blank');
 
-    // Open user's WhatsApp chat
-    const cleanUserWhatsapp = userWhatsapp.replace(/\D/g, ''); // clean number just digits
+    const cleanUserWhatsapp = userWhatsapp.replace(/\D/g, '');
     const userURL = `https://wa.me/${cleanUserWhatsapp}?text=${encodeURIComponent(userQuizSummary)}`;
     window.open(userURL, '_blank');
 
     toggleFormInputs(true);
     submitBtn.style.display = "none";
+    
+    // Hide user details and questions after submit
+    userDetailsDiv.style.display = "none";
+    quizQuestionsDiv.style.display = "none";
+
     attemptTimerDiv.textContent = "Thank you for participating! Results sent to your WhatsApp.";
     postQuizMessage.textContent = "Submission sent! Winners will be rewarded.";
   });
 
-  // On load
   window.onload = () => {
     const today = new Date();
     const day = today.getDay();
@@ -1058,10 +1055,8 @@ function scrollCards(direction) {
     startCountdown();
 
     if(day === 5) {
-      // Friday quiz day
       showVerseOfTheDay();
     } else {
-      // Not Friday: hide quiz form, show verse and countdown only
       preQuizDiv.style.display = "block";
       quizForm.style.display = "none";
       postQuizMessage.textContent = "";
@@ -1267,10 +1262,10 @@ startAutoScroll();
   <div class="text-center mb-3">
     <label class="form-label">Select Amount to Give:</label>
     <div class="d-flex justify-content-center flex-wrap gap-3">
+      <button class="btn btn-outline-warning" onclick="selectAmount(1000)">UGX 1,000</button>
       <button class="btn btn-outline-warning" onclick="selectAmount(5000)">UGX 5,000</button>
       <button class="btn btn-outline-warning" onclick="selectAmount(10000)">UGX 10,000</button>
       <button class="btn btn-outline-warning" onclick="selectAmount(20000)">UGX 20,000</button>
-      <button class="btn btn-outline-warning" onclick="selectAmount(50000)">UGX 50,000</button>
       <input type="number" id="customAmount" class="form-control w-auto" placeholder="Custom Amount" onchange="selectCustomAmount()">
     </div>
   </div>
@@ -1550,7 +1545,7 @@ startAutoScroll();
   </div>
 </footer>
 
-<nav class="bottom-nav fixed-bottom text-white d-flex justify-content-around align-items-center py-2 shadow-lg" style="background: #047024;">
+<nav class="bottom-nav fixed-bottom text-white d-flex justify-content-around align-items-center py-2 shadow-lg" style="background: #d4830a;">
   <a href="#home" class="nav-icon text-white text-center active">
     <i class="fas fa-home"></i>
     <div class="nav-label">Home</div>
