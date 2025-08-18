@@ -39,7 +39,7 @@
     "Welcome to Glory of Christ Church Kawaala!",
     "Transformation Class resumes this Saturday at 10am.",
     "Join the Encounter Class next Sunday — Registration now open.",
-    "Festival of Life Season is on. Join us this Saturday to preach the gospel!",
+    "Festival of Life Season is on.",
     "Support Church Projects directly here — God bless your giving."
   ];
 
@@ -174,7 +174,7 @@ function loadVideo(container) {
     document.getElementById('video-caption').textContent = caption;
   }
 
-  /*library*/
+  /*library
   const books = [
     { title: "Faith Foundations", image: "glor.png", link: "#" },
     { title: "Spirit Growth", image: "5.jpg", link: "#" },
@@ -257,7 +257,7 @@ function loadVideo(container) {
   }, 55000);
 
   // Initial render
-  renderSliderBooks();
+  renderSliderBooks();*/
 
   /*bible quiz*/
   const questions = [
