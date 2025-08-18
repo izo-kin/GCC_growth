@@ -19,153 +19,339 @@
   <span class="sub-brand">Glory of Christ, kawaala</span>
 </nav>
 
-<section id="home">
-<div class="picScroll" id="slideArea">
-  <div class="picLine" id="autoLine">
-    <div class="picBlock">
-      <img src="gloryb.jpg" alt="Slide 1">
-      <div class="actionWord bg-light" onclick="toggleText(this)">Details</div>
-      <div class="infoBox">
-        <div>
-          <p>This is the description for Slide 1. Here you can write anything relevant.</p>
-        </div>
-        <div class="hideTrigger" onclick="closeText(this)">Close</div>
-      </div>
-    </div>
-    <div class="picBlock">
-      <img src="5.jpg" alt="Slide 2">
-      <div class="actionWord bg-light" onclick="toggleText(this)">Details</div>
-      <div class="infoBox">
-        <div>
-          <p>This is the description for Slide 2. More custom content can be added here.</p>
-        </div>
-        <div class="hideTrigger" onclick="closeText(this)">Close</div>
-      </div>
-    </div>
-    <div class="picBlock">
-      <img src="mir.jpg" alt="Slide 3">
-      <div class="actionWord bg-light" onclick="toggleText(this)">Details</div>
-      <div class="infoBox">
-        <div>
-          <p>This is the description for Slide 3. Final slide in this demo set.</p>
-        </div>
-        <div class="hideTrigger" onclick="closeText(this)">Close</div>
-      </div>
-    </div>
-  </div>
-</div>
+<section class="church-growth">
+            <div class="title-with-logo">
+                <img src="glot.png" alt="Church Logo" class="logo">
+                <h2 class="section-title">You Are <span id="sp">Welcome</span></h2>
+              </div>
+              
+              <style>
+              .title-with-logo {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+              }
+              span{
+                color: #b3a700;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              }
+              
+              .logo {
+                width: 190px;
+                height: auto;
+              }
+              
+              .section-title {
+                font-size: 1.8rem;
+                margin: 0;
+              }
+              
+              @media (max-width: 600px) {
+                .logo {
+                  width: 90px;
+                  display: none;
+                }
+                .section-title {
+                  font-size: 1.5rem;
+                }
+              }
+              </style>
+              
+            <p class="section-description">
+                "<a href="https://gloryofchristug.org/" target="_blank">Glory of Christ Church Kawaala</a> Growth Department is dedicated to teaching and guiding members 
+                to grow in their faith and knowledge of Christ. Through biblical teachings and spiritual mentorship, we aim to 
+                strengthen the body of Christ and nurture a deeper relationship with God."
+            </p>            
+        </section>
+         <style>
+       
+       @media (max-width: 600px) {
+         .church-growth {
+    position: relative;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #91b9da8f;
+    max-width: 96%;
+    left: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+    z-index: 0;
+    top: 3vh;
+}
 
-</section>
+.church-growth::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('2.jpg') center/cover no-repeat;
+    z-index: -2;
+}
 
-<section id="announcements" class="text-center my-4 position-relative container my-3" style="background: #10111179; padding: 10px; border-color: #1ddb56;">
-  <h2 class="mb-4 text-white">Live Announcements!</h2>
+.church-growth::after {
+    content: "";
+    position: absolute;
+    top: -1vh;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background: rgba(27, 27, 27, 0.8); /* This is your overlay color */
+    z-index: -1;
+}
+
+
+a {
+    color: #abe2b8;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+}
+
+a::after {
+    content: '' ;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #abe2b8;
+    left: 0;
+    bottom: -4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #f3600a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section-description {
+    font-size: 1.15rem;
+    color: #eee7e7;
+    max-width: 900px;
+    margin: 15px auto;
+    word-spacing: 2px;
+    line-height: 1.6;
+    left: 5%;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+       }
+
+            @media (max-width: 768px) {
+                .section-title {
+                    font-size: 1.8rem;
+                }
+                .church-growth {
+                    margin-top: 6vh;
+                }
+                .section-description {
+                    font-size: 1rem;
+                }
+            }
+            @media (max-width: 480px) {
+                .section-title {
+                    font-size: 1.5rem;
+                }
+                .section-description {
+                    font-size: 0.9rem;
+                }
+            }
+        </style>
+
+<section id="announcements" class="text-center my-4 position-relative container my-3" style="padding: 10px; border-color: #1ddb56; position: relative; top: 5vh;">
+  <h2 class="mb-4 text-dark" style="text-decoration: underline;">Live Announcements</h2>
   <div class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-2">
 <div id="announcement" 
-     class="fw-bold border p-2 rounded small-announcement" 
-     style="min-height: 4.9rem; min-width: 95vw; background: #f0efeaea; color: #131414; 
+     class="fw-bold p-2 rounded small-announcement" 
+     style="min-height: 4.9rem; max-width: 70vw; color: #131414; 
             text-shadow: 0 0 1px #dfded7, 0 0 3px #ffffff, 0 0 5px #ebe7e4;
-            text-align: left;">
+            text-align: left; margin-bottom: 20px;">
 </div>
 
-    <div class="mt-2">
+<section class="image-section">
+    <img src="glor.png" alt="Descriptive Alt Text" class="responsive-img">
+    <img src="bible.png" alt="Descriptive Alt Text" class="responsive-img">
+    <img src="cap.png" alt="Descriptive Alt Text" class="responsive-img">
+  </section>
+  
+  <style>
+  .image-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -2vh;
+    margin-bottom: 4vh;
+    max-width: 250px;
+    gap: 2rem;
+  }
+  
+  .responsive-img {
+    max-width: 40%;
+    height: auto;
+    border-radius: 30px;
+    position: relative;
+    top: -5vh;
+    border: 2px solid hsl(0, 3%, 76%);
+  
+  }
+  </style>
+
+    <!--<div class="mt-2">
       <button onclick="startReadingAll()" class="btn btn-sm btn-info me-2">🔊 Read All</button>
       <button onclick="stopReadingAll()" class="btn btn-sm" style="background: #f52828;">⏹️ Stop</button>
     </div>
   </div>
-  <div id="listeningOverlay" class="position-absolute top-0 start-0 w-100 h-50 d-none justify-content-center align-items-center bg-dark bg-opacity-75 text-white" style="z-index: 10; margin-top: 60px;">
+  <div id="listeningOverlay" class="position-absolute top-0 start-0 w-100 h-50 d-none justify-content-center align-items-center bg-dark bg-opacitydtext-dark" style="z-index: 10; margin-top: 60px;">
     <h4 style="position: relative; top: 3vh;">🔊 Listening to announcements...</h4>
-  </div>
+  </div>-->
 </section>
 
 
-<section id="classes" class="container my-5" style="background: #f2f5f5; padding: 10px;">
+<section id="classes" class="container my-5" style="padding: 10px; position: relative; top: -15vh;">
   <h2 class="text-center mb-4 text-dark">Church Growth Classes</h2>
   <div class="position-relative">
-    <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1 bg-warning" style="font-size: 20px; font-weight: 900; margin-top: 120px;" onclick="scrollCards(-1)">&lt;</button>
+    <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: 190px; margin-left: 250px;" onclick="scrollCards(-1)">&lt;</button>
     <div class="d-flex overflow-auto gap-3 pb-3" id="classCarousel">
 
-       <!-- Encounter Class -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-  <div class="card-body" style="background-color:  #057a32; color: #f8f9fa;">
-    <h5 class="card-title d-flex align-items-center gap-2">
-      <img src="glor.png" alt="logo" style="height: 24px;"> Encounter Class
-    </h5>
-    <p class="card-text">Go deeper in your walk of faith. Starts next Sunday.</p>
-    <button class="btn btn-outline-warning" style="padding: 12px 28px; font-size: 1.2rem; font-weight: 600;" onclick="promptJoin('Encounter Class')">Join</button>
-  </div>
-</div>
+      <!-- Encounter Class -->
+      <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Encounter Class">
+        <div class="card-body" style="background-color:#161616e8; color:#bcbfc2;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+            <img src="glor.png" alt="logo" style="height: 24px;"> Encounter Class
+          </h5>
+          <p class="card-text">
+            Discover a deeper relationship with God and experience personal revival.  
+            This class helps you overcome past struggles, understand God’s grace,  
+            and prepare for a fresh start in your walk of faith. Starts next Sunday.
+          </p>
+          <button class="btn btn-outline-warning" style="padding: 12px 28px; font-size: 1.2rem; font-weight: 600;" onclick="promptJoin('Encounter Class')">Join</button>
+        </div>
+      </div>
 
-      <!-- Transformation Class (no Join, only Continue) -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #800080; color: #f8f9fa;">
-        <h5 class="card-title d-flex align-items-center gap-2">
-        <img src="glor.png" alt="logo" style="height: 24px;"> Transformation Class
-        </h5>          
-        <p class="card-text">Begin your growth journey here. Every Saturday at 10am.</p>
+      <!-- Transformation Class -->
+      <div class="card h-150 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Transformation Class">
+        <div class="card-body" style="background-color:#161616e8; color:#b1b4b8;">
+          <h5 class="card-title d-flex align-items-center gap-2">
+            <img src="glor.png" alt="logo" style="height: 24px;"> Transformation Class
+          </h5>
+          <p class="card-text">
+            Lay a strong foundation in your Christian journey.  
+            Here you’ll learn the basics of faith, prayer, fellowship, and living a Christ-centered life.  
+            Perfect for those new to the church or seeking renewal. Every Saturday at 10am.
+          </p>
         </div>
       </div>
 
       <!-- Membership Class -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #bd6704; color: #f8f9fa;">
+      <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Membership Class">
+        <div class="card-body" style="background-color:#161616e8; color:#c3c6c9;">
           <h5 class="card-title d-flex align-items-center gap-2">
-      <img src="glor.png" alt="logo" style="height: 24px;"> Membership Class
+            <img src="glor.png" alt="logo" style="height: 24px;"> Membership Class
           </h5>
-          <p class="card-text">Learn what it means to belong. Sundays at 12pm.</p>
+          <p class="card-text">
+            Learn what it truly means to belong to the family of Christ.  
+            Understand our church vision, values, and commitments,  
+            and discover how you can actively participate in building God’s kingdom.  
+            Join us every Sunday at 12pm.
+          </p>
         </div>
       </div>
 
       <!-- Servant's Heart Class -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #049766; color: #f8f9fa;">
+      <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Servant's Heart Class">
+        <div class="card-body" style="background-color:#161616e8; color:#c3c7ca;">
           <h5 class="card-title d-flex align-items-center gap-2">
-      <img src="glor.png" alt="logo" style="height: 24px;"> Servant's Heart Class
+            <img src="glor.png" alt="logo" style="height: 24px;"> Servant's Heart Class
           </h5>
-          <p class="card-text">Develop a heart to serve. Saturdays at 3pm.</p>
+          <p class="card-text">
+            Develop the humility and passion to serve just like Jesus did.  
+            This class equips you to identify your gifts,  
+            cultivate a lifestyle of service, and impact lives in ministry and beyond.  
+            Saturdays at 3pm.
+          </p>
         </div>
       </div>
 
       <!-- Shepherd Class -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #0517be; color: #f8f9fa;">
+      <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Shepherd Class">
+        <div class="card-body" style="background-color:#161616e8; color:#ced2d6;">
           <h5 class="card-title d-flex align-items-center gap-2">
-      <img src="glor.png" alt="logo" style="height: 24px;"> Shephered Class
+            <img src="glor.png" alt="logo" style="height: 24px;"> Shepherd Class
           </h5>
-          <p class="card-text">Lead and care like Christ. Sundays at 4pm.</p>
+          <p class="card-text">
+            Learn how to lead, guide, and care for others with wisdom and compassion.  
+            This class trains you in pastoral care, mentorship,  
+            and effective leadership rooted in biblical principles.  
+            Every Sunday at 4pm.
+          </p>
         </div>
       </div>
 
       <!-- Discipleship Class -->
-      <div class="card h-100 shadow" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #006d80; color: #f8f9fa;">
+      <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+        <img src="tich.png" class="card-img-top tich" alt="Discipleship Class">
+        <div class="card-body" style="background-color:#8a8383e8; color:#1a1b1b;">
           <h5 class="card-title d-flex align-items-center gap-2">
-      <img src="glor.png" alt="logo" style="height: 24px;"> Discipleship Class
+            <img src="glor.png" alt="logo" style="height: 24px;"> Discipleship Class
           </h5>
-          <p class="card-text">Choose online or physical sessions. Grow strong spiritually.</p>
+          <p class="card-text">
+            Grow strong spiritually and live as a true follower of Christ.  
+            You’ll be equipped to study the Word, share the gospel,  
+            and live out your faith with boldness.  
+            Available in both online and physical sessions.
+          </p>
           <button class="btn btn-outline-warning" style="padding: 12px 28px; font-size: 1.2rem; font-weight: 600;" onclick="promptJoin('Discipleship Class')">Join</button>
         </div>
       </div>
 
+    </div>
+  </div>
+
       <!-- Complete Pending Classes -->
-      <div class="card h-100 shadow border-danger border-2" style="min-width: 300px;">
-        <div class="card-body" style="background-color:  #800000; color: #f8f9fa;">
+      <div class="card h-100 shadow border-light border-2" style="min-width: 300px;">
+        <div class="card-body" style="background-color:  #969292d8; color: #0f0f0f;">
           <h5 class="card-title d-flex align-items-center gap-2">
       <img src="glor.png" alt="logo" style="height: 24px;"> Pending Completion
           </h5>
           <p class="card-text">Didn't finish a previous class? Complete it now!</p>
-          <button class="btn btn-outline-warning" onclick="promptJoin('Continuing Class')">Complete Pending Class</button>
+          <button class="btn btn-outline-light" onclick="promptJoin('Continuing Class')">Complete Pending Class</button>
         </div>
       </div>
     </div>
-    <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-1 bg-warning" style="font-size: 20px; font-weight: 900; margin-top: 120px;" onclick="scrollCards(1)">&gt;</button>
+    <button class="btn btn-light position-relative end-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: -64vh; left: 82vw;" onclick="scrollCards(1)">&gt;</button>
   </div>
 
-  <!-- Continue Previous Class Button -->
+  <!-- Continue Previous Class Button 
  <div class="text-center mt-4">
   <button class="btn btn-outline-dark glow-border border border-3" onclick="promptJoin('Continuing Class')">
     Continue from Previous Class
   </button>
-</div>
+</div>-->
 
 </section>
 
@@ -187,12 +373,49 @@
   </div>
 </div>
 
+<section id="home">
+<div class="picScroll" id="slideArea">
+  <div class="picLine" id="autoLine">
+    <div class="picBlock">
+      <img src="gloryb.jpg" alt="Slide 1">
+      <div class="actionWord bg-light" onclick="toggleText(this)">About</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 1. Here you can write anything relevant.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+    <div class="picBlock">
+      <img src="5.jpg" alt="Slide 2">
+      <div class="actionWord bg-light" onclick="toggleText(this)">About</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 2. More custom content can be added here.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+    <div class="picBlock">
+      <img src="mir.jpg" alt="Slide 3">
+      <div class="actionWord bg-light" onclick="toggleText(this)">About</div>
+      <div class="infoBox">
+        <div>
+          <p>This is the description for Slide 3. Final slide in this demo set.</p>
+        </div>
+        <div class="hideTrigger" onclick="closeText(this)">Close</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
 
 <!-- Video Testimonies Section -->
-<section class="container mb-5" style="background: #10111179; padding: 10px;">
+<section class="container mb-5" style="padding: 10px; position: relative; top: -8vh;">
   <div class="text-center mb-3">
-    <h3 class="mb-1 text-white">Video Testimonies</h3>
-    <small class="text-white">Witness from those that have finished different classes!</small>
+    <h3 class="text-dark">Video Testimonies</h3>
+    <small class="text-dark">Witness from those that have finished different classes!</small>
   </div>
 
   <div class="mb-2">
@@ -219,42 +442,62 @@
 </section>
 
 <!-- Book Library Section -->
-<section class="container my-5" style="background: #10111179; padding: 10px;">
-  <h2 class="text-center mb-4">📚 Church Book Library</h2>
+<section id="library" class="container my-5" style="position: relative; top: -5vh;">
+  <h2 class="text-center mb-4 text-dark">📚 Library</h2>
 
-  <!-- Horizontal Slider -->
-  <div class="position-relative overflow-hidden">
-    <div id="bookSlider" class="d-flex flex-nowrap overflow-auto pb-2">
-      <!-- Slider book cards will be added here dynamically -->
+  <!-- Main Card -->
+  <div class="card shadow-lg border-0">
+    <div class="card-body">
+      <h5 class="card-title">Books by Class</h5>
+      <p class="card-text">Explore books of different classes. Click to view available books.</p>
+      
+      <!-- List of Classes -->
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#classOne" role="button">
+          View Books
+        </a>
+        <div class="collapse" id="classOne">
+          <div class="card card-body">
+            <div class="row">
+              <!-- Book 1 -->
+              <div class="col-md-4 text-center mb-3">
+                <a href="books/english1.pdf" target="_blank">
+                  <img src="bible.png" class="img-fluid rounded shadow-sm" alt="Encounter" style="width: 50%; height: auto;"> 
+                  <p class="mt-2 text-dark">English for Beginners</p>
+                </a>
+              </div>
+              <!-- Book 2 -->
+              <div class="col-md-4 text-center mb-3">
+                <a href="books/math1.pdf" target="_blank">
+                  <img src="bible.png" class="img-fluid rounded shadow-sm" alt="Transformation" style="width: 50%; height: auto;">
+                  <p class="mt-2 text-dark">Basic Math Concepts</p>
+                </a>
+              </div>
+              <!-- Book 3 -->
+              <div class="col-md-4 text-center mb-3">
+                <a href="books/science1.pdf" target="_blank">
+                  <img src="bible.png" class="img-fluid rounded shadow-sm" alt="Membership" style="width: 50%; height: auto;">
+                  <p class="mt-2 text-dark">Science Made Easy</p>
+                </a>
+              </div>
+            </div>
+            <!-- Back button -->
+            <div class="text-center mt-3">
+              <button class="btn btn-outline-dark" data-bs-toggle="collapse" data-bs-target="#classOne">
+                ← Back
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- More classes can be added the same way -->
+      </div>
     </div>
-
-    <!-- Navigation Buttons -->
-    <button id="prevBook" class="btn btn-light position-absolute top-50 start-0 translate-middle-y"><</button>
-    <button id="nextBook" class="btn btn-light position-absolute top-50 end-0 translate-middle-y">></button>
-  </div>
-
-  <!-- More Button -->
-  <div class="text-center mt-4">
-    <button id="toggleBooksBtn" class="btn btn-warning">More Books</button>
   </div>
 </section>
 
-<!-- Overlay Full Book List -->
-<div id="bookOverlay" class="overlay d-none">
-  <div class="overlay-content container">
-    <h3 class="text-center mb-4 text-white">All Books</h3>
-    <div class="column" id="fullBookList">
-      <!-- Full list of books will appear here -->
-    </div>
-    <div class="text-center mt-4">
-      <button onclick="toggleFullBookList()" class="btn btn-outline-light text-white">Close</button>
-    </div>
-  </div>
-</div>
-
-
 <!-- Bible Quiz Section -->
- <section id="bible-quiz" class="p-6 shadow rounded-xl max-w-4xl mx-auto my-8" style="background: #0a8585; color: white; padding: 10px;">
+ <section id="bible-quiz" class="p-6 rounded-xl max-w-4xl mx-auto my-8" style="background: #00000021; color: rgb(22, 21, 21); padding: 10px;">
   <h2 class="text-3xl font-bold text-center mb-4">Bible Quiz Challenge</h2>
   <div id="quiz-countdown" class="text-center mb-4" style="font-weight: 600;"></div>
   <div id="quiz-container" class="space-y-6" style="margin: 1rem;">
@@ -270,20 +513,20 @@
         <input type="text" name="name" placeholder="Full Name" required class="p-3 rounded border border-gray-300 w-full text-black">
         <input type="tel" name="phone" placeholder="Phone Number" required class="p-3 rounded border border-gray-300 w-full text-black">
         <input type="tel" name="userWhatsapp" placeholder="Your WhatsApp Number (e.g. 2567XXXXXXXX)" required class="p-3 rounded border border-gray-300 w-full text-black" pattern="^\d{9,15}$" title="Enter a valid WhatsApp number including country code">
+        <input type="text" name="leader" placeholder="Fellowship Leader Name" required class="p-3 rounded border border-gray-300 w-full text-black">
+        <input type="tel" name="leaderContact" placeholder="Fellowship Leader Contact" required class="p-3 rounded border border-gray-300 w-full text-black">
         <select name="lineage" required class="p-3 rounded border border-gray-300 w-full text-black">
           <option value="">Select Lineage</option>
           <option>Esther</option><option>David</option><option>Daniel</option><option>Israel</option>
           <option>Nehemiah</option><option>Joshua</option><option>Moses</option><option>Elijah</option>
           <option>Solomon</option><option>Deborah</option><option>Joseph</option><option>Ephraim</option>
         </select>
-        <input type="text" name="leader" placeholder="Fellowship Leader Name" required class="p-3 rounded border border-gray-300 w-full text-black">
-        <input type="tel" name="leaderContact" placeholder="Fellowship Leader Contact" required class="p-3 rounded border border-gray-300 w-full text-black">
       </div>
 
-      <div id="lineage-warning" style="color: yellow; font-weight: 700; text-align:center; display:none; margin-top: 10px;">A participant from this lineage has already submitted.</div>
+      <div id="lineage-warning" style="color: yellow; font-weight: 700; text-align:center; display:none; margin-top: 10px;">You have already attempted!</div>
 
       <div id="quiz-questions" class="space-y-4 mt-4"></div>
-      <button type="submit" class="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded mt-2">Submit Quiz</button>
+      <button type="submit" class="bg-green-700 hover:bg-green-dtext-dark px-6 py-2 rounded mt-2">Submit Quiz</button>
     </form>
 
     <div id="post-quiz-message" class="text-center mt-4" style="font-size: 1.1rem;"></div>
@@ -293,14 +536,14 @@
 </section>
 
 
-<section id="projects" class="py-5" style="background: #10111179; padding: 10px;">
+<section id="projects" class="py-5" style="padding: 10px;">
   <div class="container">
     <h2 class="text-center mb-4">Church Growth Projects</h2>
 
     <div class="d-flex justify-content-center mb-3 flex-wrap">
-      <button id="btn-ongoing" class="btn btn-warning mx-1 active">Ongoing</button>
-      <button id="btn-upcoming" class="btn btn-outline-warning mx-1">Upcoming</button>
-      <button id="btn-completed" class="btn btn-outline-warning mx-1">Completed</button>
+      <button id="btn-ongoing" class="btn btn-success mx-1 active">Ongoing</button>
+      <button id="btn-upcoming" class="btn btn-outline-success mx-1">Upcoming</button>
+      <button id="btn-completed" class="btn btn-outline-success mx-1">Completed</button>
     </div>
 
     <div class="position-relative" style="max-width: 900px; margin: 0 auto;">
@@ -308,7 +551,7 @@
         ❮
       </button>
 
-      <div class="overflow-hidden" id="slider-container" style="min-height: 400px;">
+      <div class="overflow-hidden" id="slider-container" style="min-height: 500px;">
         <div id="project-slider" class="d-flex position-relative"></div>
       </div>
 
@@ -320,38 +563,38 @@
 </section>
 
 
-<section id="fundraise" class="container my-5" style="background: #10111179; padding: 10px; position: relative; top: -5vh;">
+<section id="fundraise" class="container my-5" style="padding: 10px; background:#00000021; color: #131414; position: relative; top: -15vh;">
   <h3 class="text-center mb-3">Support Church Growth</h3>
   <p class="text-center mb-4">Your contribution helps us continue building and expanding God's work.</p>
 
   <div class="text-center mb-3">
     <label class="form-label">Select Amount to Give:</label>
     <div class="d-flex justify-content-center flex-wrap gap-3">
-      <button class="btn btn-outline-warning" onclick="selectAmount(1000)">UGX 1,000</button>
-      <button class="btn btn-outline-warning" onclick="selectAmount(5000)">UGX 5,000</button>
-      <button class="btn btn-outline-warning" onclick="selectAmount(10000)">UGX 10,000</button>
-      <button class="btn btn-outline-warning" onclick="selectAmount(20000)">UGX 20,000</button>
+      <button class="btn btn-outline-success" onclick="selectAmount(1000)">UGX 1,000</button>
+      <button class="btn btn-outline-success" onclick="selectAmount(5000)">UGX 5,000</button>
+      <button class="btn btn-outline-success" onclick="selectAmount(10000)">UGX 10,000</button>
+      <button class="btn btn-outline-success" onclick="selectAmount(20000)">UGX 20,000</button>
       <input type="number" id="customAmount" class="form-control w-auto" placeholder="Custom Amount" onchange="selectCustomAmount()">
     </div>
   </div>
 
   <div class="text-center mt-4">
     <p><strong>Selected Amount:</strong> <span id="selectedAmount">None</span></p>
-    <button class="btn btn-success" onclick="proceedToPayment()" id="proceedBtn" disabled>Proceed to Payment</button>
+    <button class="btn btn-success" style="z-index: 100;" onclick="proceedToPayment()" id="proceedBtn" disabled>Proceed to Support</button>
   </div>
 </section>
 
 
-<section class="container my-5" id="enrollment-calendar-section" style="background: #10111179; padding: 10px;">
-  <h2 class="text-center mb-4">Class Enrollment Calendar</h2>
+<section class="container my-5" id="enrollment-calendar-section" style="padding: 10px; position: relative; top: -10vh;">
+  <h2 class="text-center text-dark mb-4">Class Enrollment Calendar</h2>
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <button class="btn btn-outline-warning" id="prevMonthBtn">&lt; Prev</button>
+    <button class="btn btn-outline-success" id="prevMonthBtn">&lt; Prev</button>
     <h4 id="calendarMonthYear" class="mb-0"></h4>
-    <button class="btn btn-outline-warning" id="nextMonthBtn">Next &gt;</button>
+    <button class="btn btn-outline-success" id="nextMonthBtn">Next &gt;</button>
   </div>
   <div class="table-responsive">
     <table class="table table-bordered text-center" id="calendarTable">
-      <thead class="table-light">
+      <thead class="table-warning">
         <tr>
           <th>Sun</th>
           <th>Mon</th>
@@ -384,29 +627,29 @@
 
 
 <!-- 📖 Bible Series Section -->
-<section id="bible-series" class="py-5" style="background: #10111179; padding: 10px;">
+<section id="bible-series" class="py-5" style="padding: 10px; position: relative; top: -12vh;">
   <div class="container text-center">
-    <h2 class="text-warning fw-bold mb-3">📖 Bible Series: Walk with Jesus</h2>
-    <p class="lead mb-4 text-white">
+    <h2 class="text-dark fw-bold mb-3">📖 Learning Series: History of Glory of Christ</h2>
+    <p class="lead mdtext-dark">
       Join us every week for a powerful episode about the life and teachings of Jesus Christ.  
       <br><strong>Don't miss out—your spirit will be uplifted!</strong>
     </p>
 
     <!-- 🎥 YouTube Video Embed -->
     <div class="ratio ratio-16x9 mb-4">
-      <iframe src="https://www.youtube.com/embed/TgWhVRm25i8" 
+      <iframe src="https://www.youtube.com/embed/pCSiySg23Zw" 
               title="Bible Series - Jesus Christ" 
               allowfullscreen></iframe>
     </div>
 
-    <p class="text-white">
+    <p class="text-dark">
       New episodes posted weekly. <br> Stay connected, stay blessed. 🙏
     </p>
   </div>
 </section>
 
-<section class="container my-5 text-center" style="background: #10111179; padding: 10px;">
-  <h3 class="mb-3">Grow & Share the Word</h3>
+<section class="container my-5 text-center" style="padding: 10px; position: relative; top: -18vh;">
+  <h3 class="mb-3 text-dark">Grow & Share the Word</h3>
 
   <blockquote class="blockquote">
     <p class="mb-0 fs-5">"Study to show thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth."</p>
@@ -429,24 +672,24 @@
 </section>
 
 
-<footer class="bg-dark text-white text-center text-lg-start mt-5 pt-4 pb-3" style="margin-bottom: 70px;">
+<footer class="bg-ddtext-dark text-center text-lg-start mt-5 pt-4 pb-3" style="margin-bottom: 70px; position: relative; top: -10vh;">
   <div class="container">
     <div class="row align-items-center">
 
       <div class="col-md-6 mb-3 mb-md-0">
         <p class="mb-1">© 2025 Glory of Christ Church Kawaala. All Rights Reserved.</p>
-        <p class="mb-0">Contact: <a href="mailto:info@glorychurch.org" class="text-white text-decoration-underline">info@glorychurch.org</a> | 
-        <a href="tel:+256700000000" class="text-white text-decoration-underline">+256 700 000000</a></p>
+        <p class="mb-0">Contact: <a href="mailto:info@glorychurch.org" cladtext-dark text-decoration-underline">info@glorychurch.org</a> | 
+        <a href="tel:+256700000000" class="text-dark text-decoration-underline">+256 700 000000</a></p>
       </div>
 
       <div class="col-md-6 text-md-end">
-        <a href="https://facebook.com/yourchurch" target="_blank" class="text-white me-3">
+        <a href="https://facebook.com/yourchurch" target="_blank" class="text-dark me-3">
           <i class="fab fa-facebook fa-lg"></i>
         </a>
-        <a href="https://wa.me/256700000000" target="_blank" class="text-white me-3">
+        <a href="https://wa.me/256700000000" target="_blank" class="text-dark me-3">
           <i class="fab fa-whatsapp fa-lg"></i>
         </a>
-        <a href="mailto:info@glorychurch.org" class="text-white">
+        <a href="mailto:info@glorychurch.org" class="text-dark">
           <i class="fas fa-envelope fa-lg"></i>
         </a>
       </div>
@@ -455,36 +698,34 @@
   </div>
 </footer>
 
-<nav class="bottom-nav fixed-bottom text-white d-flex justify-content-around align-items-center py-2 shadow-lg" style="background: #202020;">
-  <a href="#home" class="nav-icon text-white text-center active">
+<nav class="bottom-nav fixedtext-dark d-flex justify-content-around align-items-center py-2 shadow-lg" style="background: #202020;">
+  <a href="#home" class="nav-idtext-dark text-center active">
     <i class="fas fa-home"></i>
     <div class="nav-label">Home</div>
   </a>
-  <a href="#classes" class="nav-icon text-white text-center">
+  <a href="#classes" class="nav-idtext-dark text-center">
     <i class="fas fa-chalkboard-teacher"></i>
     <div class="nav-label">Classes</div>
   </a>
-  <a href="#bible-quiz" class="nav-icon text-white text-center">
+  <a href="#bible-quiz" class="nav-idtext-dark text-center">
     <i class="fas fa-book-open"></i>
     <div class="nav-label">Quiz</div>
   </a>
-  <a href="#projects" class="nav-icon text-white text-center">
+  <a href="#projects" class="nav-idtext-dark text-center">
     <i class="fas fa-hammer"></i>
     <div class="nav-label">Projects</div>
   </a>
-  <a href="#fundraise" class="nav-icon text-white text-center">
+  <a href="#fundraise" class="nav-idtext-dark text-center">
     <i class="fas fa-donate"></i>
     <div class="nav-label">Support</div>
   </a>
-  <a href="#enrollment-calendar-section" class="nav-icon text-white text-center">
+  <a href="#enrollment-calendar-section" class="nav-idtext-dark text-center">
     <i class="fas fa-calendar-alt"></i>
     <div class="nav-label">Calendar</div>
   </a>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
