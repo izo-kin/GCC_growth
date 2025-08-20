@@ -221,7 +221,7 @@ a:hover::after {
 
             @media (max-width: 768px) {
                 .section-title {
-                    font-size: 1.8rem;
+                    font-size: 2rem;
                 }
                 .church-growth {
                     margin-top: 5vh;
@@ -232,7 +232,7 @@ a:hover::after {
             }
             @media (max-width: 480px) {
                 .section-title {
-                    font-size: 1.7rem;
+                    font-size: 2rem;
                 }
                 .section-description {
                     font-size: 1.1rem;
@@ -539,6 +539,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
