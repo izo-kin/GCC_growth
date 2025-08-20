@@ -1,3 +1,26 @@
+/* nav toggle*/
+const navToggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+const overlay = document.getElementById("overlay");
+
+function openMobileNav() {
+  mobileNav.style.transform = "translateX(0)";
+  overlay.style.display = "block";
+}
+
+function closeMobileNav() {
+  mobileNav.style.transform = "translateX(-100%)";
+  overlay.style.display = "none";
+}
+
+navToggle.addEventListener("click", openMobileNav);
+overlay.addEventListener("click", closeMobileNav);
+
+// Close menu on link click
+mobileNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", closeMobileNav);
+});
+
 /*slider*/
   const track = document.getElementById('autoLine');
   const totalSlides = track.children.length;
@@ -36,7 +59,7 @@
 
   /*live announcements*/
   const announcements = [
-    "Welcome to Glory of Christ Church Kawaala!",
+    "Discipleship evanglism class intake resumes",
     "Transformation Class resumes this Saturday at 10am.",
     "Join the Encounter Class next Sunday — Registration now open.",
     "Festival of Life Season is on.",
@@ -174,91 +197,186 @@ function loadVideo(container) {
     document.getElementById('video-caption').textContent = caption;
   }
 
-  /*library
-  const books = [
-    { title: "Faith Foundations", image: "glor.png", link: "#" },
-    { title: "Spirit Growth", image: "5.jpg", link: "#" },
-    { title: "Prayer Guide", image: "glor.png", link: "#" },
-    { title: "Holy Living", image: "5.jpg", link: "#" },
-    { title: "Leadership Light", image: "glor.png", link: "#" },
-    { title: "Wisdom Nuggets", image: "5.jpg", link: "#" },
-    { title: "Praise & Worship", image: "glor.png", link: "#" },
-    { title: "Church Vision", image: "5.jpg", link: "#" }
+  /*recorded video sessions*/
+  document.addEventListener("DOMContentLoaded", () => {
+  const videoData = [
+    // Add your videos here with class, title, teacher, whatsapp, date, profile
+    {id:1,className:"Daniel",title:"Advanced Bible Study",teacher:"John Doe",whatsapp:"256701234567",video:"bil.mp4",profile:"tich.png",date:"19 Aug 2025"},
+    {id:2,className:"Moses",title:"Faith and Obedience",teacher:"Mary Jane",whatsapp:"256701234568",video:"bil.mp4",profile:"tich.png",date:"18 Aug 2025"},
+    {id:3,className:"Esther",title:"Prayer and Devotion",teacher:"Peter Smith",whatsapp:"256701234569",video:"bil.mp4",profile:"tich.png",date:"17 Aug 2025"},
+    // Add more as needed
   ];
 
-  const bookSlider = document.getElementById("bookSlider");
-  const fullBookList = document.getElementById("fullBookList");
-  const bookOverlay = document.getElementById("bookOverlay");
-  const toggleBooksBtn = document.getElementById("toggleBooksBtn");
+  const videoContainer = document.getElementById("videoContainer");
+  const pagination = document.getElementById("pagination");
+  const searchInput = document.getElementById("videoSearch");
+  const classTabs = document.querySelectorAll('#classTabs .nav-link');
 
-  function createBookCard(book) {
-    const card = document.createElement("div");
-    card.className = "book-card";
+  let filteredVideos = [...videoData];
+  const videosPerPage = 3;
+  let currentPage = 1;
 
-   card.innerHTML = `
-  <img src="${book.image}" alt="${book.title}" style="width: 100%; height: auto; object-fit: cover;">
-  <div class="book-card-body" style="width: 180px; background: #000000d9; height: 130px;">
-    <h6>${book.title}</h6>
-    <a href="${book.link}" target="_blank" class="btn btn-sm btn-success my-1">Read</a>
-    <button class="btn btn-sm btn-secondary" disabled>Download</button>
-  </div>
-`;
-    return card;
+  function renderVideos() {
+    videoContainer.innerHTML = "";
+    const start = (currentPage-1)*videosPerPage;
+    const end = start + videosPerPage;
+    const pageVideos = filteredVideos.slice(start,end);
+
+    pageVideos.forEach(video => {
+      const card = document.createElement('div');
+      card.className = "col-12 col-md-6 col-lg-4 video-card";
+      card.dataset.videoId = video.id;
+      card.dataset.teacher = video.teacher;
+      card.dataset.whatsapp = video.whatsapp;
+      card.dataset.title = video.title;
+      card.dataset.class = video.className;
+      card.innerHTML = `
+        <div class="card shadow-sm hover-card h-100">
+          <video class="card-img-top w-100" controls>
+            <source src="${video.video}" type="video/mp4">
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Class Title: ${video.title}</h5>
+            <div class="d-flex align-items-center mb-2">
+              <img src="${video.profile}" class="rounded-circle me-2" style="width:50px;height:50px;">
+              <div>
+                <p class="mb-0"><strong>Teacher:</strong> ${video.teacher}</p>
+                <small class="text-muted">Uploaded: ${video.date} | Class: ${video.className}</small>
+                <div class="teacher-status mt-1">
+                  <span class="status-dot bg-offline"></span>
+                  <small class="status-text">Offline</small>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-success btn-sm mb-2 w-100 whatsapp-btn">Ask a Question via WhatsApp</a>
+            <div class="comments-section mt-3">
+              <h6>Comments</h6>
+              <ul class="list-group mb-2 comments-list"></ul>
+              <button class="btn btn-link p-0 mb-2 view-more-btn" style="display:none;">View More</button>
+              <div class="input-group">
+                <input type="text" class="form-control comment-input" placeholder="Write a comment...">
+                <button class="btn btn-primary post-btn">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      videoContainer.appendChild(card);
+    });
+
+    setupVideoCards();
+    renderPagination();
   }
 
-  function renderSliderBooks() {
-    bookSlider.innerHTML = "";
-    books.forEach(book => {
-      const card = createBookCard(book);
-      bookSlider.appendChild(card);
+  function renderPagination() {
+    pagination.innerHTML = "";
+    const pageCount = Math.ceil(filteredVideos.length / videosPerPage);
+    for(let i=1;i<=pageCount;i++){
+      const li = document.createElement('li');
+      li.className = `page-item ${i===currentPage?'active':''}`;
+      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      li.addEventListener('click', e=>{
+        e.preventDefault();
+        currentPage=i;
+        renderVideos();
+      });
+      pagination.appendChild(li);
+    }
+  }
+
+  // Search
+  searchInput.addEventListener('input', e=>{
+    const term = e.target.value.toLowerCase();
+    filteredVideos = videoData.filter(v=>{
+      return v.title.toLowerCase().includes(term) || v.teacher.toLowerCase().includes(term);
+    });
+    currentPage = 1;
+    renderVideos();
+  });
+
+  // Class Tabs
+  classTabs.forEach(tab=>{
+    tab.addEventListener('click', e=>{
+      e.preventDefault();
+      classTabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const cls = tab.dataset.class;
+      filteredVideos = cls==='All'? [...videoData] : videoData.filter(v=>v.className===cls);
+      currentPage = 1;
+      renderVideos();
+    });
+  });
+
+  // Setup each card: comments, WhatsApp, teacher status
+  function setupVideoCards() {
+    const cards = document.querySelectorAll('.video-card');
+    cards.forEach(card=>{
+      const videoId = card.dataset.videoId;
+      const teacher = card.dataset.teacher;
+      const whatsappNumber = card.dataset.whatsapp;
+      const title = card.dataset.title;
+      const whatsappBtn = card.querySelector('.whatsapp-btn');
+      const commentsList = card.querySelector('.comments-list');
+      const input = card.querySelector('.comment-input');
+      const postBtn = card.querySelector('.post-btn');
+      const statusDot = card.querySelector('.status-dot');
+      const statusText = card.querySelector('.status-text');
+      const viewMoreBtn = card.querySelector('.view-more-btn');
+
+      const savedComments = JSON.parse(localStorage.getItem(`comments-${videoId}`)) || [];
+
+      let showingAll=false;
+
+      function renderComments(limit=3){
+        commentsList.innerHTML='';
+        const toShow = showingAll ? savedComments : savedComments.slice(-limit);
+        toShow.forEach(c=>{
+          const li = document.createElement('li');
+          li.className='list-group-item';
+          li.textContent=`${c.teacher} (${c.title}): ${c.text}`;
+          commentsList.appendChild(li);
+        });
+        viewMoreBtn.style.display = savedComments.length>3 ? 'inline-block' : 'none';
+        viewMoreBtn.textContent = showingAll ? 'View Less' : 'View More';
+      }
+
+      renderComments();
+
+      viewMoreBtn.addEventListener('click', ()=>{
+        showingAll=!showingAll;
+        renderComments();
+      });
+
+      whatsappBtn.addEventListener('click', e=>{
+        e.preventDefault();
+        const message = encodeURIComponent(`Hello ${teacher}, I have a question about the video '${title}'`);
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      });
+
+      postBtn.addEventListener('click', ()=>{
+        const text = input.value.trim();
+        if(!text) return;
+        savedComments.push({teacher,title,text});
+        localStorage.setItem(`comments-${videoId}`,JSON.stringify(savedComments));
+        renderComments();
+        const message = encodeURIComponent(`Comment on '${title}': ${text}`);
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`,'_blank');
+        input.value='';
+      });
+
+      function updateStatus(){
+        const isOnline=Math.random()>0.5;
+        if(isOnline){ statusDot.classList.add('bg-online'); statusDot.classList.remove('bg-offline'); statusText.textContent='Online'; }
+        else { statusDot.classList.add('bg-offline'); statusDot.classList.remove('bg-online'); statusText.textContent='Offline'; }
+      }
+      updateStatus();
+      setInterval(updateStatus,10000);
     });
   }
 
-  function renderFullBookList() {
-  fullBookList.innerHTML = "";
-
-  const row = document.createElement("div");
-  row.className = "row";
-
-  books.forEach(book => {
-    const col = document.createElement("div");
-    // 2 columns on small screens, 3 on md and above
-    col.className = "col-6 col-md-3 d-flex justify-content-center mb-4";
-
-    col.appendChild(createBookCard(book));
-    row.appendChild(col);
-  });
-
-  fullBookList.appendChild(row);
-}
-
-  function toggleFullBookList() {
-    bookOverlay.classList.toggle("d-none");
-  }
-
-  toggleBooksBtn.addEventListener("click", () => {
-    renderFullBookList();
-    toggleFullBookList();
-  });
-
-  // Book Slider Controls
-  document.getElementById("prevBook").onclick = () => {
-    bookSlider.scrollBy({ left: -200, behavior: "smooth" });
-  };
-
-  document.getElementById("nextBook").onclick = () => {
-    bookSlider.scrollBy({ left: 200, behavior: "smooth" });
-  };
-
-  // Auto reshuffle every 15 seconds
-  setInterval(() => {
-    books.push(books.shift()); // rotate array
-    renderSliderBooks();
-  }, 55000);
-
-  // Initial render
-  renderSliderBooks();*/
-
+  renderVideos();
+});
+  
   /*bible quiz*/
   const questions = [
     { q: "What is the first book of the Bible?", a: "Genesis" },
@@ -300,7 +418,25 @@ function loadVideo(container) {
   const userDetailsDiv = document.getElementById("user-details"); // <-- wrapper for name, phone, lineage, etc.
 
   let timerInterval;
-  let usedLineages = new Set(JSON.parse(localStorage.getItem('usedLineages') || '[]'));
+// Determine the upcoming Friday
+const thisFriday = nextFriday();
+const today = new Date();
+
+// Get last quiz Friday from localStorage
+let lastQuizFriday = localStorage.getItem("lastQuizFriday");
+
+// Reset usedLineages if a new Friday has arrived
+let usedLineages = new Set();
+
+if (!lastQuizFriday || new Date(lastQuizFriday).getTime() < thisFriday.getTime() - 7*24*60*60*1000) {
+    // It's a new week, clear lineage usage
+    usedLineages = new Set();
+    localStorage.setItem("usedLineages", JSON.stringify([...usedLineages]));
+    localStorage.setItem("lastQuizFriday", thisFriday.toISOString());
+} else {
+    // Load previously used lineages
+    usedLineages = new Set(JSON.parse(localStorage.getItem("usedLineages") || "[]"));
+}
 
   function shuffle(array) {
     for (let i = array.length -1; i > 0; i--) {
@@ -503,140 +639,108 @@ function loadVideo(container) {
 };
 
 /*projects*/
-const projectSlider = document.getElementById("project-slider");
-const sliderContainer = document.getElementById("slider-container");
-const btnPrev = document.getElementById("btn-prev");
-const btnNext = document.getElementById("btn-next");
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("project-slider");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+  const categoryBtns = document.querySelectorAll("[data-category]");
 
-let currentSlide = 0;
-let currentCategory = 'Ongoing';
-let autoScrollInterval;
+  const projects = {
+    ongoing: [
+      { title: "Church Building Renovation", desc: "Renovating the main hall with new seats and sound system.", img: "gloryb.jpg" },
+      { title: "Community Outreach", desc: "Weekly evangelism and charity support.", img: "mir.jpg" }
+    ],
+    upcoming: [
+      { title: "Youth Camp", desc: "Organizing a spiritual camp for the youth.", img: "gloryb.jpg" },
+      { title: "Bible Study Series", desc: "Launching a new weekly Bible study program.", img: "mir.jpg" }
+    ],
+    completed: [
+      { title: "Health Drive", desc: "Completed medical camp for the community.", img: "stud.png" },
+      { title: "Fundraiser", desc: "Successfully raised funds for church library.", img: "2.jpg" }
+    ]
+  };
 
-const projects = {
-  Ongoing: [
-    {
-      title: "Church Roofing",
-      status: "Ongoing",
-      description: "Completing the main hall roofing for the new extension.",
-      image: "gloryb.jpg",
-      percent: 65,
-      balance: "UGX 5,400,000"
-    },
-    {
-      title: "Youth Center",
-      status: "Ongoing",
-      description: "Renovating the youth center for better learning space.",
-      image: "mir.jpg",
-      percent: 45,
-      balance: "UGX 3,200,000"
-    }
-  ],
-  Upcoming: [
-    {
-      title: "Mission Van",
-      status: "Upcoming",
-      description: "Purchase of a van to facilitate outreach missions.",
-      image: "images/mission_van.jpg",
-      percent: 0,
-      balance: "UGX 25,000,000"
-    }
-  ],
-  Completed: [
-    {
-      title: "Children’s Ministry Room",
-      status: "Completed",
-      description: "Successfully renovated the children’s worship area.",
-      image: "images/children_room.jpg",
-      percent: 100,
-      balance: "UGX 0"
-    }
-  ]
-};
+  let currentCategory = "ongoing";
+  let currentIndex = 0;
+  let startX = 0;
+  let isDragging = false;
 
-function renderProjects() {
-  const data = projects[currentCategory];
-  projectSlider.innerHTML = '';
+  function renderProjects(category) {
+    slider.innerHTML = "";
+    projects[category].forEach(p => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.innerHTML = `
+        <div class="card">
+          <img src="${p.img}" class="card-img-top" alt="${p.title}">
+          <div class="card-body">
+            <h5 class="card-title">${p.title}</h5>
+            <p class="card-text">${p.desc}</p>
+          </div>
+        </div>
+      `;
+      slider.appendChild(card);
+    });
+    currentIndex = 0;
+    updateSlider();
+  }
 
-  data.forEach((project, i) => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-    if (i === currentSlide) card.classList.add("active");
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
 
-    card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}" class="img-fluid rounded mb-3" style="height: 150px; width: 400px; object-fit: cover;">
-      <h4>${project.title}</h4>
-      <p><strong>Status:</strong> ${project.status}</p>
-      <p>${project.description}</p>
-      <div class="progress mb-1">
-        <div class="progress-bar bg-success" style="width: ${project.percent}%">${project.percent}%</div>
-      </div>
-      ${project.balance && project.percent < 100 ? `<p><strong>Balance:</strong> ${project.balance}</p>` : ''}
-    `;
-    card.style.transform = `translateX(${(i - currentSlide) * 100}%)`;
-    projectSlider.appendChild(card);
+  // Buttons
+  btnPrev.addEventListener("click", () => {
+    if (currentIndex > 0) currentIndex--;
+    updateSlider();
   });
 
-  updateTabStyle();
-}
-
-function updateSlide(direction) {
-  const total = projects[currentCategory].length;
-  currentSlide = (currentSlide + direction + total) % total;
-  renderProjects();
-}
-
-function updateTabStyle() {
-  ['btn-ongoing', 'btn-upcoming', 'btn-completed'].forEach(id => {
-    document.getElementById(id).classList.remove('btn-primary', 'active');
-    document.getElementById(id).classList.add('btn-outline-primary');
+  btnNext.addEventListener("click", () => {
+    if (currentIndex < projects[currentCategory].length - 1) currentIndex++;
+    updateSlider();
   });
 
-  document.getElementById(`btn-${currentCategory.toLowerCase()}`).classList.add('btn-primary', 'active');
-  document.getElementById(`btn-${currentCategory.toLowerCase()}`).classList.remove('btn-outline-primary');
-}
+  // Category Buttons
+  categoryBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      categoryBtns.forEach(b => b.classList.remove("active", "btn-success"));
+      categoryBtns.forEach(b => b.classList.add("btn-outline-success"));
+      btn.classList.add("active", "btn-success");
+      btn.classList.remove("btn-outline-success");
+      currentCategory = btn.dataset.category;
+      renderProjects(currentCategory);
+    });
+  });
 
-function startAutoScroll() {
-  clearInterval(autoScrollInterval);
-  autoScrollInterval = setInterval(() => {
-    updateSlide(1);
-  }, 5000);
-}
+  // ✅ Touch Swipe Events
+  slider.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
 
-// Pause auto-scroll on hover
-sliderContainer.addEventListener("mouseenter", () => clearInterval(autoScrollInterval));
-sliderContainer.addEventListener("mouseleave", startAutoScroll);
+  slider.addEventListener("touchmove", e => {
+    if (!isDragging) return;
+    const x = e.touches[0].clientX;
+    const diff = startX - x;
+    // optional: you can show slight dragging effect if desired
+  });
 
-btnPrev.addEventListener("click", () => {
-  updateSlide(-1);
-  startAutoScroll();
-});
-btnNext.addEventListener("click", () => {
-  updateSlide(1);
-  startAutoScroll();
-});
+  slider.addEventListener("touchend", e => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (diff > 50 && currentIndex < projects[currentCategory].length - 1) {
+      currentIndex++; // swipe left → next
+    } else if (diff < -50 && currentIndex > 0) {
+      currentIndex--; // swipe right → previous
+    }
+    updateSlider();
+    isDragging = false;
+  });
 
-document.getElementById("btn-ongoing").addEventListener("click", () => {
-  currentCategory = "Ongoing";
-  currentSlide = 0;
-  renderProjects();
-  startAutoScroll();
+  // Initial load
+  renderProjects(currentCategory);
 });
-document.getElementById("btn-upcoming").addEventListener("click", () => {
-  currentCategory = "Upcoming";
-  currentSlide = 0;
-  renderProjects();
-  startAutoScroll();
-});
-document.getElementById("btn-completed").addEventListener("click", () => {
-  currentCategory = "Completed";
-  currentSlide = 0;
-  renderProjects();
-  startAutoScroll();
-});
-
-// Initial render + scroll
-renderProjects();
-startAutoScroll();
 
 /*support growth*/
   let amount = 0;
@@ -795,27 +899,27 @@ startAutoScroll();
 
   /*bottom navigation*/
   const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.bottom-nav .nav-icon');
+const navLinks = document.querySelectorAll('.bottom-nav a');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
+window.addEventListener('scroll', () => {
+  let current = '';
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= sectionTop - sectionHeight / 3) {
-        current = section.getAttribute('id');
-      }
-    });
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
+    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute('id');
+    }
   });
 
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
 
 /*announcement, encounter form, load video*/
 function speakText() {
