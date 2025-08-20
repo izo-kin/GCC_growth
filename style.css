@@ -116,7 +116,7 @@ html {
                   @media (max-width: 768px) {
          .church-growth {
     position: relative;
-    top: 5vh;
+    top: 4vh;
     text-align: center;
     padding: 30px 20px;
     border-radius: 10px;
@@ -200,7 +200,7 @@ a:hover::after {
 }
 
 .section-description {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #eee7e7;
     text-shadow: 0 0 2px rgba(34, 34, 33, 0.788); /* slim shadow */
     max-width: 900px;
@@ -227,15 +227,15 @@ a:hover::after {
                     margin-top: 5vh;
                 }
                 .section-description {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                 }
             }
             @media (max-width: 480px) {
                 .section-title {
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
                 }
                 .section-description {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     text-shadow: 0 0 2px rgba(34, 34, 33, 0.863); /* slim shadow */
                 }
             }
@@ -539,4 +539,5 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
