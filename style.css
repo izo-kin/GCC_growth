@@ -324,6 +324,10 @@ a:hover::after {
     }
 
     /* Moving light edges */
+#enter{
+  position: relative;
+  top: -4vh;
+}
     .main-btn::before {
       content: "";
       position: absolute;
@@ -618,6 +622,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
