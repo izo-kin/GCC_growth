@@ -14,47 +14,53 @@
 </head>
 <body>
 
-  <nav id="headerBar" class="px-3 py-2 d-flex align-items-center shadow">
-  <span class="header-brand me-2">Church Growth</span>
-  <span class="sub-brand">Glory of Christ, kawaala</span>
+ <!-- Header -->
+<nav id="headerBar" class="px-3 py-2 d-flex align-items-center shadow justify-content-between bg-light position-fixed" style="margin-bottom: 20px;">
+  <!-- Brand -->
+  <div class="d-flex align-items-center">
+    <span class="header-brand fw-bold me-2">Church Growth</span>
+    <span class="sub-brand text-muted">Glory of Christ, Kawaala</span>
+  </div>
+
+  <!-- Toggle button for small screens -->
+  <button class="btn btn-outline-secondary d-md-none" id="navToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Navigation Links for large screens -->
+  <ul id="navLinks" class="nav d-none d-md-flex align-items-center mb-0">
+    <li class="nav-item me-3"><a href="#recorded-classes" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-video me-1"></i> Recorded Videos</a></li>
+    <li class="nav-item me-3"><a href="#library" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-book me-1"></i> Library</a></li>
+    <li class="nav-item me-3"><a href="#testimonies" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-microphone me-1"></i> Testimony Videos</a></li>
+    <li class="nav-item"><a href="#learning-series" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-1"></i> Learning Series</a></li>
+    <li class="nav-item"><a href="#devot" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-1"></i> Daily Devotional</a></li>
+    <li class="nav-item"><a href="#events" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-1"></i> Events</a></li>
+  </ul>
 </nav>
+
+<!-- Collapsed mobile menu -->
+<div id="mobileNav" class="bg-light shadow position-fixed top-0 start-0 vh-100 w-75 overflow-auto" style="transform: translateX(-100%); transition: transform 0.3s; z-index: 1000;">
+  <ul class="nav flex-column p-3">
+    <li class="nav-item mb-2"><a href="#recorded-classes" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-video me-2"></i> Recorded Videos</a></li>
+    <li class="nav-item mb-2"><a href="#library" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-book me-2"></i> Library</a></li>
+    <li class="nav-item mb-2"><a href="#testimonies" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-microphone me-2"></i> Testimony Videos</a></li>
+    <li class="nav-item"><a href="#learning-series" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-2"></i> Learning Series</a></li>
+    <li class="nav-item"><a href="#devot" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-1"></i> Daily Devotional</a></li>
+    <li class="nav-item"><a href="#events" class="nav-link text-dark d-flex align-items-center"><i class="fas fa-graduation-cap me-1"></i> Events</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0, 0, 0, 0.205); z-index:998;"></div>
 
 <section class="church-growth">
             <div class="title-with-logo">
-                <img src="glot.png" alt="Church Logo" class="logo">
+                <img src="glor.png" alt="Church Logo" class="logo">
                 <h2 class="section-title">You Are <span id="sp">Welcome</span></h2>
               </div>
               
               <style>
-              .title-with-logo {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-              }
-              span{
-                color: #b3a700;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-              }
               
-              .logo {
-                width: 190px;
-                height: auto;
-              }
-              
-              .section-title {
-                font-size: 1.8rem;
-                margin: 0;
-              }
-              
-              @media (max-width: 600px) {
-                .logo {
-                  width: 90px;
-                  display: none;
-                }
-                .section-title {
-                  font-size: 1.5rem;
-                }
-              }
               </style>
               
             <p class="section-description">
@@ -63,158 +69,25 @@
                 strengthen the body of Christ and nurture a deeper relationship with God."
             </p>            
         </section>
-         <style>
-       
-       @media (max-width: 600px) {
-         .church-growth {
-    position: relative;
-    text-align: center;
-    padding: 30px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px #91b9da8f;
-    max-width: 96%;
-    left: 2vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    transform: translateY(30px);
-    animation: fadeInUp 1.2s ease-out forwards;
-    z-index: 0;
-    top: 3vh;
-}
 
-.church-growth::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('2.jpg') center/cover no-repeat;
-    z-index: -2;
-}
-
-.church-growth::after {
-    content: "";
-    position: absolute;
-    top: -1vh;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    background: rgba(27, 27, 27, 0.8); /* This is your overlay color */
-    z-index: -1;
-}
-
-
-a {
-    color: #abe2b8;
-    font-weight: bold;
-    position: relative;
-    text-decoration: none;
-}
-
-a::after {
-    content: '' ;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #abe2b8;
-    left: 0;
-    bottom: -4px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-a:hover::after {
-    transform: scaleX(1);
-}
-
-.section-title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #f3600a;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.section-description {
-    font-size: 1.15rem;
-    color: #eee7e7;
-    max-width: 900px;
-    margin: 15px auto;
-    word-spacing: 2px;
-    line-height: 1.6;
-    left: 5%;
-}
-
-/* Animation */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-       }
-
-            @media (max-width: 768px) {
-                .section-title {
-                    font-size: 1.8rem;
-                }
-                .church-growth {
-                    margin-top: 6vh;
-                }
-                .section-description {
-                    font-size: 1rem;
-                }
-            }
-            @media (max-width: 480px) {
-                .section-title {
-                    font-size: 1.5rem;
-                }
-                .section-description {
-                    font-size: 0.9rem;
-                }
-            }
-        </style>
-
-<section id="announcements" class="text-center my-4 position-relative container my-3" style="padding: 10px; border-color: #1ddb56; position: relative; top: 5vh;">
+<section id="announcements" class="text-center my-4 position-relative container my-3" style="padding: 10px; border-color: #1ddb56; position: relative; top: 3vh;">
   <h2 class="mb-4 text-dark" style="text-decoration: underline;">Live Announcements</h2>
+  <h3 style="position: relative; top: 4vh; left: -29vh;">📢</h3>
   <div class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-2">
 <div id="announcement" 
      class="fw-bold p-2 rounded small-announcement" 
      style="min-height: 4.9rem; max-width: 70vw; color: #131414; 
             text-shadow: 0 0 1px #dfded7, 0 0 3px #ffffff, 0 0 5px #ebe7e4;
-            text-align: left; margin-bottom: 20px;">
+            text-align: left; margin-bottom: 20px; position: relative; top: -3vh;">
 </div>
 
+
+
 <section class="image-section">
-    <img src="glor.png" alt="Descriptive Alt Text" class="responsive-img">
-    <img src="bible.png" alt="Descriptive Alt Text" class="responsive-img">
-    <img src="cap.png" alt="Descriptive Alt Text" class="responsive-img">
-  </section>
-  
-  <style>
-  .image-section {
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-    margin-top: -2vh;
-    margin-bottom: 4vh;
-    max-width: 250px;
-    gap: 2rem;
-  }
-  
-  .responsive-img {
-    max-width: 40%;
-    height: auto;
-    border-radius: 30px;
-    position: relative;
-    top: -5vh;
-    border: 2px solid hsl(0, 3%, 76%);
-  
-  }
-  </style>
+  <img src="glor.png" alt="Glory Logo" class="responsive-img img1">
+  <img src="bible.png" alt="Bible" class="responsive-img img2">
+  <img src="cap.png" alt="Graduation Cap" class="responsive-img img3">
+</section>
 
     <!--<div class="mt-2">
       <button onclick="startReadingAll()" class="btn btn-sm btn-info me-2">🔊 Read All</button>
@@ -226,17 +99,23 @@ a:hover::after {
   </div>-->
 </section>
 
+<!-- Horizontal Divider Section -->
+<section class="divider-section py-4">
+  <div class="container text-center">
+    <hr class="divider-line">
+  </div>
+</section>
 
-<section id="classes" class="container my-5" style="padding: 10px; position: relative; top: -15vh;">
+<section id="classes" class="container my-5" style="padding: 10px; position: relative; top: -18vh;">
   <h2 class="text-center mb-4 text-dark">Church Growth Classes</h2>
   <div class="position-relative">
-    <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: 190px; margin-left: 250px;" onclick="scrollCards(-1)">&lt;</button>
+    <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: 195px; margin-left: 250px;" onclick="scrollCards(-1)">&lt;</button>
     <div class="d-flex overflow-auto gap-3 pb-3" id="classCarousel">
 
       <!-- Encounter Class -->
       <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
         <img src="tich.png" class="card-img-top tich" alt="Encounter Class">
-        <div class="card-body" style="background-color:#161616e8; color:#bcbfc2;">
+        <div class="card-body" style="background-color:#050505; color:#bcbfc2;">
           <h5 class="card-title d-flex align-items-center gap-2">
             <img src="glor.png" alt="logo" style="height: 24px;"> Encounter Class
           </h5>
@@ -252,7 +131,7 @@ a:hover::after {
       <!-- Transformation Class -->
       <div class="card h-150 shadow boxy" style="min-width: 300px; background: #ece9e6;">
         <img src="tich.png" class="card-img-top tich" alt="Transformation Class">
-        <div class="card-body" style="background-color:#161616e8; color:#b1b4b8;">
+        <div class="card-body" style="background-color:#050505; color:#b1b4b8;">
           <h5 class="card-title d-flex align-items-center gap-2">
             <img src="glor.png" alt="logo" style="height: 24px;"> Transformation Class
           </h5>
@@ -267,7 +146,7 @@ a:hover::after {
       <!-- Membership Class -->
       <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
         <img src="tich.png" class="card-img-top tich" alt="Membership Class">
-        <div class="card-body" style="background-color:#161616e8; color:#c3c6c9;">
+        <div class="card-body" style="background-color:#050505; color:#c3c6c9;">
           <h5 class="card-title d-flex align-items-center gap-2">
             <img src="glor.png" alt="logo" style="height: 24px;"> Membership Class
           </h5>
@@ -283,7 +162,7 @@ a:hover::after {
       <!-- Servant's Heart Class -->
       <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
         <img src="tich.png" class="card-img-top tich" alt="Servant's Heart Class">
-        <div class="card-body" style="background-color:#161616e8; color:#c3c7ca;">
+        <div class="card-body" style="background-color:#050505; color:#c3c7ca;">
           <h5 class="card-title d-flex align-items-center gap-2">
             <img src="glor.png" alt="logo" style="height: 24px;"> Servant's Heart Class
           </h5>
@@ -296,10 +175,26 @@ a:hover::after {
         </div>
       </div>
 
+      <!-- Christology Class -->
+<div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
+  <img src="tich.png" class="card-img-top tich" alt="Christology Class">
+  <div class="card-body" style="background-color:#050505; color:#ced2d6;">
+    <h5 class="card-title d-flex align-items-center gap-2">
+      <img src="glor.png" alt="logo" style="height: 24px;"> Christology Class
+    </h5>
+    <p class="card-text">
+      This class reveals Christ from the very first chapter of the Bible to the last.  
+      Discover how every scripture points to Jesus, deepening your understanding  
+      of His identity, mission, and eternal significance.  
+      Every Sunday at 4pm.
+    </p>
+  </div>
+</div>
+
       <!-- Shepherd Class -->
       <div class="card h-100 shadow boxy" style="min-width: 300px; background: #ece9e6;">
         <img src="tich.png" class="card-img-top tich" alt="Shepherd Class">
-        <div class="card-body" style="background-color:#161616e8; color:#ced2d6;">
+        <div class="card-body" style="background-color:#050505; color:#ced2d6;">
           <h5 class="card-title d-flex align-items-center gap-2">
             <img src="glor.png" alt="logo" style="height: 24px;"> Shepherd Class
           </h5>
@@ -338,12 +233,12 @@ a:hover::after {
           <h5 class="card-title d-flex align-items-center gap-2">
       <img src="glor.png" alt="logo" style="height: 24px;"> Pending Completion
           </h5>
-          <p class="card-text">Didn't finish a previous class? Complete it now!</p>
-          <button class="btn btn-outline-light" onclick="promptJoin('Continuing Class')">Complete Pending Class</button>
+          <p class="card-text">Didn't finish a previous class? You can omplete it now!</p>
+          <button class="btn btn-outline-light text-dark glow-border" onclick="promptJoin('Continuing Class')">Complete Pending Class</button>
         </div>
       </div>
     </div>
-    <button class="btn btn-light position-relative end-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: -64vh; left: 82vw;" onclick="scrollCards(1)">&gt;</button>
+    <button class="btn btn-light position-relative end-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: -70vh; left: 82vw;" onclick="scrollCards(1)">&gt;</button>
   </div>
 
   <!-- Continue Previous Class Button 
@@ -373,7 +268,41 @@ a:hover::after {
   </div>
 </div>
 
-<section id="home">
+<!-- Video Testimonies Section -->
+<section class="container mb-5" style="padding: 10px; position: relative; top: -19vh;">
+  <div class="text-center mb-3" style="position: relative; top: 2vh;">
+    <h3 class="text-dark">Testimony Videos</h3>
+    <small class="text-dark">Witness from those that have finished different classes!</small>
+  </div>
+
+  <div class="mb-2">
+    <video id="main-video" width="100%" height="300" controls>
+      <source src="bil.mp4" type="video/mp4">
+    </video>
+    <p class="text-center fw-bold mt-2" id="video-caption">John Doe - Encounter Class</p>
+  </div>
+
+  <div class="video-scroll d-flex overflow-auto gap-3">
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="John Doe - Encounter Class"></video>
+      <p class="small mt-1 mb-0">John Doe<br><em>Encounter Class</em></p>
+    </div>
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Grace Namiiro - Membership Class"></video>
+      <p class="small mt-1 mb-0">Grace Namiiro<br><em>Membership Class</em></p>
+    </div>
+    <div class="text-center" onclick="loadVideo(this)">
+      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Moses K - Shepherd Class"></video>
+      <p class="small mt-1 mb-0">Moses K<br><em>Shepherd Class</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="text-center mb-3" style="position: relative; top: -16vh;">
+    <h3 class="text-dark">Events</h3>
+    <small class="text-dark">Events conducted by the department</small>
+  </div>
 <div class="picScroll" id="slideArea">
   <div class="picLine" id="autoLine">
     <div class="picBlock">
@@ -411,45 +340,17 @@ a:hover::after {
 
 </section>
 
-<!-- Video Testimonies Section -->
-<section class="container mb-5" style="padding: 10px; position: relative; top: -8vh;">
-  <div class="text-center mb-3">
-    <h3 class="text-dark">Video Testimonies</h3>
-    <small class="text-dark">Witness from those that have finished different classes!</small>
-  </div>
-
-  <div class="mb-2">
-    <video id="main-video" width="100%" height="300" controls>
-      <source src="bil.mp4" type="video/mp4">
-    </video>
-    <p class="text-center fw-bold mt-2" id="video-caption">John Doe - Encounter Class</p>
-  </div>
-
-  <div class="video-scroll d-flex overflow-auto gap-3">
-    <div class="text-center" onclick="loadVideo(this)">
-      <video src="bil.mp4" muted class="rounded" width="150" data-caption="John Doe - Encounter Class"></video>
-      <p class="small mt-1 mb-0">John Doe<br><em>Encounter Class</em></p>
-    </div>
-    <div class="text-center" onclick="loadVideo(this)">
-      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Grace Namiiro - Membership Class"></video>
-      <p class="small mt-1 mb-0">Grace Namiiro<br><em>Membership Class</em></p>
-    </div>
-    <div class="text-center" onclick="loadVideo(this)">
-      <video src="bil.mp4" muted class="rounded" width="150" data-caption="Moses K - Shepherd Class"></video>
-      <p class="small mt-1 mb-0">Moses K<br><em>Shepherd Class</em></p>
-    </div>
-  </div>
-</section>
-
 <!-- Book Library Section -->
 <section id="library" class="container my-5" style="position: relative; top: -5vh;">
-  <h2 class="text-center mb-4 text-dark">📚 Library</h2>
-
+  <h2 class="text-center mb-4 text-dark" style="position: relative; top: -5vh;">📚 Library</h2>
+  <div class="text-center mb-3" style="position: relative; top: -2vh;">
+  <small class="text-dark">Access our mobile library with various books</small>
+  </div>
   <!-- Main Card -->
   <div class="card shadow-lg border-0">
-    <div class="card-body">
-      <h5 class="card-title">Books by Class</h5>
-      <p class="card-text">Explore books of different classes. Click to view available books.</p>
+    <div class="card-body" style="background: #1d1c1d;">
+      <h5 class="card-title text-white">Books by Class</h5>
+      <p class="card-text text-light">Explore books of different classes. Click to view available books.</p>
       
       <!-- List of Classes -->
       <div class="list-group">
@@ -531,37 +432,45 @@ a:hover::after {
 
     <div id="post-quiz-message" class="text-center mt-4" style="font-size: 1.1rem;"></div>
 
-    <div id="verse-today" class="mt-8 text-center" style="font-style: italic; font-size: 1rem;"></div>
+    <section id="devot">
+      <h2 class="text-3xl font-bold text-center mb-4" style="position: relative; top: 2vh;">Daily devotion</h2>
+
+    <div id="verse-today" class="mt-8 text-center" style="font-style: italic; font-size: 1rem; background: #131414; color: #e6dede; padding: 10px;">
+    </div>
+    </section>
   </div>
 </section>
 
 
-<section id="projects" class="py-5" style="padding: 10px;">
+<section id="projects" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Church Growth Projects</h2>
+    <h2 class="text-center mb-4 text-dark">Church Growth Projects</h2>
 
+    <!-- Category Buttons -->
     <div class="d-flex justify-content-center mb-3 flex-wrap">
-      <button id="btn-ongoing" class="btn btn-success mx-1 active">Ongoing</button>
-      <button id="btn-upcoming" class="btn btn-outline-success mx-1">Upcoming</button>
-      <button id="btn-completed" class="btn btn-outline-success mx-1">Completed</button>
+      <button class="btn btn-success mx-1 active" data-category="ongoing">Ongoing</button>
+      <button class="btn btn-outline-success mx-1" data-category="upcoming">Upcoming</button>
+      <button class="btn btn-outline-success mx-1" data-category="completed">Completed</button>
     </div>
 
+    <!-- Slider -->
     <div class="position-relative" style="max-width: 900px; margin: 0 auto;">
-      <button id="btn-prev" class="btn btn-secondary position-absolute top-50 start-0 translate-middle-y z-2 mt-4">
+      <button id="btn-prev" class="btn btn-secondary position-absolute top-50 start-0 translate-middle-y z-2">
         ❮
       </button>
 
-      <div class="overflow-hidden" id="slider-container" style="min-height: 500px;">
-        <div id="project-slider" class="d-flex position-relative"></div>
+      <div class="overflow-hidden" id="slider-container" style="min-height: 350px;">
+        <div id="project-slider" class="d-flex transition-all" style="transition: transform 0.6s ease;">
+          <!-- ✅ Items will be injected here -->
+        </div>
       </div>
 
-      <button id="btn-next" class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y z-2 mt-4">
+      <button id="btn-next" class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y z-2">
         ❯
       </button>
     </div>
   </div>
 </section>
-
 
 <section id="fundraise" class="container my-5" style="padding: 10px; background:#00000021; color: #131414; position: relative; top: -15vh;">
   <h3 class="text-center mb-3">Support Church Growth</h3>
@@ -584,6 +493,31 @@ a:hover::after {
   </div>
 </section>
 
+<!-- Recorded Classes Section -->
+<section id="recorded-classes" class="container my-5">
+  <h2 class="text-center mb-4 text-dark">🎥 Recorded Class Sessions</h2>
+
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <input type="text" id="videoSearch" class="form-control" placeholder="Search by video title or teacher...">
+  </div>
+
+  <!-- Navigation Tabs for Classes -->
+  <ul class="nav nav-tabs mb-4" id="classTabs">
+    <li class="nav-item"><a class="nav-link active" href="#" data-class="All">All Classes</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" data-class="Daniel">Daniel</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" data-class="Moses">Moses</a></li>
+    <li class="nav-item"><a class="nav-link" href="#" data-class="Esther">Esther</a></li>
+  </ul>
+
+  <div id="videoContainer" class="d-flex flex-nowrap overflow-auto g-4 py-2">
+  <!-- Video cards will be dynamically injected here via JS -->
+</div>
+  <!-- Pagination Controls -->
+  <nav>
+    <ul class="pagination justify-content-center mt-4" id="pagination"></ul>
+  </nav>
+</section>
 
 <section class="container my-5" id="enrollment-calendar-section" style="padding: 10px; position: relative; top: -10vh;">
   <h2 class="text-center text-dark mb-4">Class Enrollment Calendar</h2>
@@ -594,7 +528,7 @@ a:hover::after {
   </div>
   <div class="table-responsive">
     <table class="table table-bordered text-center" id="calendarTable">
-      <thead class="table-warning">
+      <thead class="table-success">
         <tr>
           <th>Sun</th>
           <th>Mon</th>
@@ -658,17 +592,17 @@ a:hover::after {
 
   <p class="mt-4">Be a part of this mission. Invite a friend to grow with us and help spread the Gospel far and wide!</p>
 
-  <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+  <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap share">
     <a class="btn btn-success" href="https://wa.me/?text=Check%20out%20this%20amazing%20church%20site:%20https://yourchurchsite.com" target="_blank">
       Share on WhatsApp
     </a>
     <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u=https://yourchurchsite.com" target="_blank">
       Share on Facebook
     </a>
-    <button class="btn btn-warning" onclick="copyLink()">Copy Link</button>
+    <button class="btn btn-warning" style="position: relative; top: 5vh;" onclick="copyLink()">Copy site Link</button>
   </div>
 
-  <p id="copyStatus" class="mt-2 text-success" style="display: none;">Link copied!</p>
+  <p id="copyStatus" class="mt-2 text-success" style="display: none; position: relative; top: 5vh;">Link copied!</p>
 </section>
 
 
@@ -698,33 +632,33 @@ a:hover::after {
   </div>
 </footer>
 
-<nav class="bottom-nav fixedtext-dark d-flex justify-content-around align-items-center py-2 shadow-lg" style="background: #202020;">
-  <a href="#home" class="nav-idtext-dark text-center active">
+<nav class="bottom-nav d-flex justify-content-around align-items-center py-2 shadow-lg" 
+     style="background: #202020; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1000;">
+  <a href="#home" class="text-light text-center active">
     <i class="fas fa-home"></i>
     <div class="nav-label">Home</div>
   </a>
-  <a href="#classes" class="nav-idtext-dark text-center">
+  <a href="#classes" class="text-light text-center">
     <i class="fas fa-chalkboard-teacher"></i>
     <div class="nav-label">Classes</div>
   </a>
-  <a href="#bible-quiz" class="nav-idtext-dark text-center">
+  <a href="#bible-quiz" class="text-light text-center">
     <i class="fas fa-book-open"></i>
     <div class="nav-label">Quiz</div>
   </a>
-  <a href="#projects" class="nav-idtext-dark text-center">
+  <a href="#projects" class="text-light text-center">
     <i class="fas fa-hammer"></i>
     <div class="nav-label">Projects</div>
   </a>
-  <a href="#fundraise" class="nav-idtext-dark text-center">
+  <a href="#fundraise" class="text-light text-center">
     <i class="fas fa-donate"></i>
     <div class="nav-label">Support</div>
   </a>
-  <a href="#enrollment-calendar-section" class="nav-idtext-dark text-center">
+  <a href="#enrollment-calendar-section" class="text-light text-center">
     <i class="fas fa-calendar-alt"></i>
     <div class="nav-label">Calendar</div>
   </a>
 </nav>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
