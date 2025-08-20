@@ -232,7 +232,7 @@ a:hover::after {
             }
             @media (max-width: 480px) {
                 .section-title {
-                    font-size: 1.5rem;
+                    font-size: 1.7rem;
                 }
                 .section-description {
                     font-size: 1.1rem;
@@ -539,6 +539,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
