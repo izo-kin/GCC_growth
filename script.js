@@ -197,6 +197,94 @@ function loadVideo(container) {
     document.getElementById('video-caption').textContent = caption;
   }
 
+/*enter classes*/
+ const enterBtn = document.getElementById("enterBtn");
+    const mainSection = document.getElementById("mainSection");
+    const levelsSection = document.getElementById("levelsSection");
+    const classesSection = document.getElementById("classesSection");
+    const topicsSection = document.getElementById("topicsSection");
+    const classesTitle = document.getElementById("classesTitle");
+    const classesList = document.getElementById("classesList");
+    const topicsTitle = document.getElementById("topicsTitle");
+    const topicsList = document.getElementById("topicsList");
+
+    const data = {
+      1: ["Encounter", "Transformation", "Membership"],
+      2: ["Bethel Class", "Servant's Heart", "Christology"],
+      3: ["Shepherd Class"]
+    };
+
+    // Audio topics (replace 'audio/topicX.mp3' with your real MP3 paths)
+    const topicsData = {
+      "Encounter": ["audio/encounter1.mp3", "audio/encounter2.mp3"],
+      "Transformation": ["audio/transformation1.mp3", "audio/transformation2.mp3"],
+      "Membership": ["audio/membership1.mp3"],
+      "Bethel Class": ["audio/bethel1.mp3"],
+      "Servant's Heart": ["audio/servant1.mp3"],
+      "Christology": ["audio/christology1.mp3"],
+      "Shepherd Class": ["audio/shepherd1.mp3"]
+    };
+
+    enterBtn.addEventListener("click", () => {
+      mainSection.classList.add("hidden");
+      levelsSection.classList.remove("hidden");
+    });
+
+    function showClasses(level) {
+      levelsSection.classList.add("hidden");
+      classesSection.classList.remove("hidden");
+      classesTitle.textContent = "Level " + level + " Classes";
+      classesList.innerHTML = "";
+      data[level].forEach(cls => {
+        const btn = document.createElement("button");
+        btn.className = "btn btn-outline-dark";
+        btn.textContent = cls;
+        btn.onclick = () => showTopics(cls);
+        classesList.appendChild(btn);
+      });
+    }
+
+    function showTopics(className) {
+      classesSection.classList.add("hidden");
+      topicsSection.classList.remove("hidden");
+      topicsTitle.textContent = className + " - Topics";
+      topicsList.innerHTML = "";
+      topicsData[className].forEach((src, i) => {
+        const div = document.createElement("div");
+        div.className = "card p-3 shadow-sm";
+        div.innerHTML = `
+          <h5>Topic ${i + 1} - ${className}</h5>
+          <audio controls id="${className}-topic${i}">
+            <source src="${src}" type="audio/mpeg">
+            Your browser does not support audio playback.
+          </audio>
+        `;
+        topicsList.appendChild(div);
+
+        // Restore playback time
+        const audio = div.querySelector("audio");
+        const key = `${className}-topic${i}`;
+        const saved = JSON.parse(localStorage.getItem(key));
+        if (saved && (Date.now() - saved.time) < FIVE_SECONDS) {
+          audio.currentTime = saved.position;
+        }
+
+        // Save playback position
+        audio.addEventListener("timeupdate", () => {
+          localStorage.setItem(key, JSON.stringify({ position: audio.currentTime, time: Date.now() }));
+        });
+      });
+    }
+
+    function goBack(sectionId) {
+      [mainSection, levelsSection, classesSection, topicsSection].forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(sectionId).classList.remove("hidden");
+    }
+
+    // LocalStorage expiry time
+    const FIVE_SECONDS = 5000; // 5 seconds
+    // const FIVE_SECONDS = 3000; // 3 seconds (for testing)
+  
   /*recorded video sessions*/
   document.addEventListener("DOMContentLoaded", () => {
   const videoData = [
@@ -949,3 +1037,4 @@ function speakText() {
   }
 
   /*end of script.js */
+
