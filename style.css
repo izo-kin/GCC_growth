@@ -284,6 +284,85 @@ a:hover::after {
   margin-top: -10vh;            /* center horizontally */
 }
 
+  /* Main Button Styling */
+   .main-btn {
+  position: relative;
+  display: inline-block;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: url('bible.png') center/cover no-repeat;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+
+  /* Text shadow and glow */
+  text-shadow: 0 0 8px rgba(39, 38, 38, 0.9),
+               0 0 15px rgba(255,255,255,0.6),
+               2px 2px 6px rgba(0,0,0,0.7);
+  z-index: 2; /* Text above overlay */
+}
+
+/* Overlay behind the text */
+.main-btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3); /* semi-transparent dark overlay */
+  border-radius: 15px;
+  z-index: 1;
+  pointer-events: none; /* Allow clicks through overlay */
+}
+
+    .main-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Moving light edges */
+    .main-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent, rgba(255,255,255,0.3));
+      transform: rotate(25deg);
+      animation: shine 3s linear infinite;
+    }
+
+    @keyframes shine {
+      from { transform: rotate(25deg) translateX(-100%); }
+      to { transform: rotate(25deg) translateX(100%); }
+    }
+
+    /* Zooming background animation */
+    .main-btn {
+      animation: zoomBg 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomBg {
+      from { background-size: 100%; }
+      to { background-size: 120%; }
+    }
+
+    .hidden { display: none; }
+
+    /* Smooth fade */
+    .fade-section {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
    /* events section*/
     .picScroll {
         position: relative;
@@ -539,6 +618,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
