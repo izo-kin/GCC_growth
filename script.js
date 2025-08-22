@@ -1,3 +1,25 @@
+const toggleBtn = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const body = document.body;
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-theme");
+    themeIcon.classList.replace("fa-moon", "fa-sun");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark-theme");
+
+    if (body.classList.contains("dark-theme")) {
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+      localStorage.setItem("theme", "dark");
+    } else {
+      themeIcon.classList.replace("fa-sun", "fa-moon");
+      localStorage.setItem("theme", "light");
+    }
+  });
+
 /* nav toggle*/
 const navToggle = document.getElementById("navToggle");
 const mobileNav = document.getElementById("mobileNav");
@@ -122,6 +144,23 @@ mobileNav.querySelectorAll("a").forEach(link => {
 
   // Start the loop
   loopAnnouncements();
+
+  //church growth section
+  const readMoreBtn = document.querySelector(".read-more-btn");
+  const moreText = document.querySelector(".more-text");
+  const shortText = document.querySelector(".short-text");
+
+  readMoreBtn.addEventListener("click", () => {
+    if (moreText.style.display === "none" || moreText.style.display === "") {
+      moreText.style.display = "inline";
+      shortText.style.display = "none";
+      readMoreBtn.textContent = "Read Less";
+    } else {
+      moreText.style.display = "none";
+      shortText.style.display = "inline";
+      readMoreBtn.textContent = "Read More";
+    }
+  });
 
   /*classes*/
   function promptJoin(className) {
@@ -1037,4 +1076,5 @@ function speakText() {
   }
 
   /*end of script.js */
+
 
