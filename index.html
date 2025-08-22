@@ -22,6 +22,11 @@
     <span class="sub-brand text-muted">Glory of Christ, Kawaala</span>
   </div>
 
+   <!-- Theme Toggle Button -->
+<button id="themeToggle" class="btn btn-outline-secondary">
+  <i id="themeIcon" class="fas fa-moon"></i>
+</button>
+  
   <!-- Toggle button for small screens -->
   <button class="btn btn-outline-secondary d-md-none" id="navToggle">
     <i class="fas fa-bars"></i>
@@ -101,31 +106,30 @@
 <!-- Overlay -->
 <div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0, 0, 0, 0.205); z-index:998;"></div>
 
-<section class="church-growth" id="home">
-            <div class="title-with-logo">
-                <img src="glor.png" alt="Church Logo" class="logo">
-                <h2 class="section-title">You Are <span id="sp">Welcome</span></h2>
-              </div>
-              
-              <style>
-              
-              </style>
-              
-            <p class="section-description">
-                "<a href="https://gloryofchristug.org/" target="_blank">Glory of Christ Church Kawaala</a> Growth Department is dedicated to teaching and guiding members 
-                to grow in their faith and knowledge of Christ. Through biblical teachings and spiritual mentorship, we aim to 
-                strengthen the body of Christ and nurture a deeper relationship with God."
-            </p>            
-        </section>
+<section class="church-growth">
+  <div class="title-with-logo">
+    <img src="glor.png" alt="Church Logo" class="logo">
+    <h2 class="section-title">You Are <span id="sp">Welcome</span></h2>
+  </div>
+  
+  <p class="section-description">
+    "<a href="https://gloryofchristug.org/" target="_blank">Glory of Christ Church Kawaala</a> Growth Department 
+    <span class="short-text">is dedicated to teaching and guiding members...</span>
+    <span class="more-text">
+      to grow in their faith and knowledge of Christ. Through biblical teachings and spiritual mentorship, we aim to 
+      strengthen the body of Christ and nurture a deeper relationship with God.
+    </span>
+  </p>
+  
+  <button class="read-more-btn">Read More</button>
+</section>
 
 <section id="announcements" class="text-center my-4 position-relative container my-3" style="padding: 10px; border-color: #1ddb56; position: relative; top: 3vh;">
-<h2 class="animated-underline text-dark mb-4">Live Announcements</h2>
-  <h3 style="position: relative; top: 5vh; left: -29vh; font-size: 35px;">📢</h3>
+<h2 class="animated-underline mb-4">Live Announcements</h2>
   <div class="d-flex justify-content-center align-items-center flex-column flex-md-row gap-2">
 <div id="announcement" 
      class="fw-bold p-2 rounded small-announcement" 
      style="min-height: 4.9rem; max-width: 70vw; color: #131414; 
-            text-shadow: 0 0 1px #dfded7, 0 0 3px #ffffff, 0 0 5px #ebe7e4;
             text-align: left; margin-bottom: 20px; position: relative; top: -3vh;">
 </div>
 
@@ -155,7 +159,7 @@
 </section>
 
 <section id="classes" class="container my-5" style="padding: 10px; position: relative; top: -18vh;">
-  <h2 class="text-center mb-4 text-dark">Church Growth Classes</h2>
+  <h2 class="text-center mb-4">Church Growth Classes</h2>
   <div class="position-relative">
     <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-1 bg-dark" style="font-size: 20px; color: #eef3ef; font-weight: 900; margin-top: 195px; margin-left: 250px;" onclick="scrollCards(-1)">&lt;</button>
     <div class="d-flex overflow-auto gap-3 pb-3" id="classCarousel">
@@ -477,7 +481,7 @@
 </section>
 
 <!-- Bible Quiz Section -->
- <section id="bible-quiz" class="p-6 rounded-xl max-w-4xl mx-auto my-8" style="background: #00000021; color: rgb(22, 21, 21); padding: 10px;">
+ <section id="bible-quiz" class="p-6 rounded-xl max-w-4xl mx-auto my-8" style="padding: 10px;">
   <h2 class="text-3xl font-bold text-center mb-4">Bible Quiz Challenge</h2>
   <div id="quiz-countdown" class="text-center mb-4" style="font-weight: 600;"></div>
   <div id="quiz-container" class="space-y-6" style="margin: 1rem;">
@@ -551,7 +555,7 @@
   </div>
 </section>
 
-<section id="fundraise" class="container my-5" style="padding: 10px; background:#00000021; color: #131414; position: relative; top: -15vh;">
+<section id="fundraise" class="container my-5" style="padding: 10px; position: relative; top: -15vh;">
   <h3 class="text-center mb-3">Support Church Growth</h3>
   <p class="text-center mb-4">Your contribution helps us continue building and expanding God's work.</p>
 
@@ -746,6 +750,7 @@
 
 </body>
 </html>
+
 
 
 
