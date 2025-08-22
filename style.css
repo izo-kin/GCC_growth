@@ -55,6 +55,28 @@ html {
       color: #0c0c0c;
     }
 
+/* Default: Light theme (Bootstrap normal) */
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-theme .card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-theme .btn {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-theme .navbar {
+  background-color: #222 !important;
+}
+
     /*Announcements*/
     .animated-underline {
   position: relative;
@@ -646,6 +668,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
