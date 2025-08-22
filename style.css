@@ -94,15 +94,10 @@ html {
               }
 
               .logo {
-                width: 90px;   /* sets the width */
+                width: 40px;   /* sets the width */
                 height: auto;   /* keeps the aspect ratio */
                 }
-              
-              .logo {
-                width: 100px;
-                height: auto;
-              }
-              
+            
               .section-title {
                 font-size: 1.8rem;
                 margin: 0;
@@ -239,6 +234,35 @@ a:hover::after {
                     text-shadow: 0 0 2px rgba(34, 34, 33, 0.863); /* slim shadow */
                 }
             }
+
+ /* Hide extended text by default */
+.more-text {
+  display: none;
+}
+
+/* Style for read more button */
+.read-more-btn {
+  background: #f3600a;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: #d94e05;
+}
+
+/* Nice transition for text */
+.section-description {
+  position: relative;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
   /* three image section*/
   .image-section {
   display: flex;
@@ -622,6 +646,7 @@ a:hover::after {
   position: relative;
   top: 7vh;
 }
+
 
 
 
